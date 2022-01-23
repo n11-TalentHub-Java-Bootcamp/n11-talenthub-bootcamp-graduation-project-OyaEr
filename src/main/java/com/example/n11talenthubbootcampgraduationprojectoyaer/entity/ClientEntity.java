@@ -1,7 +1,6 @@
 package com.example.n11talenthubbootcampgraduationprojectoyaer.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jdk.jfr.DataAmount;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,7 +21,7 @@ public class ClientEntity {
     @Column(name="ID", nullable = false)
     private Long id;
 
-    @Column(name="IDENTITY_NUMBER", nullable = false , length=11, updatable = false) //updatable???, string??
+    @Column(name="IDENTITY_NUMBER", nullable = false , length=11, updatable = false , unique = true) //updatable???, string??
     private String idNum;
 
     @Column (name= "NAME_SURNAME", nullable = false, length=100 ) // length??
@@ -44,7 +43,5 @@ public class ClientEntity {
 
     @Column(name="CREDIT_SCORE" ) //nullable = false , int??
     private int creditScore;
-
-
 
 }
