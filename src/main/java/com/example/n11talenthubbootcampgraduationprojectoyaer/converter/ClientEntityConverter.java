@@ -3,6 +3,7 @@ package com.example.n11talenthubbootcampgraduationprojectoyaer.converter;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.dto.ClientDto;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.dto.ClientRequestDto;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.dto.ClientResponseDto;
+import com.example.n11talenthubbootcampgraduationprojectoyaer.dto.CreditStatusDto;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.ClientEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
@@ -25,7 +26,11 @@ public interface ClientEntityConverter {
 
      ClientEntity convertAllClientResponseDtoListToClientList(ClientResponseDto clientResponseDto);
 
-      List<ClientRequestDto> convertAllClientListToClientRequestDtoList (List<ClientEntity> clientEntityList);
+     List<ClientRequestDto> convertAllClientListToClientRequestDtoList (List<ClientEntity> clientEntityList);
 
-      ClientEntity convertAllClientRequestDtoListToClientList(ClientRequestDto clientRequestDto);
+     ClientEntity convertAllClientRequestDtoListToClientList(ClientRequestDto clientRequestDto);
+
+     List<CreditStatusDto> convertAllClientListToCreditStatusDtoList (List<ClientEntity> clientEntityList);
+
+     ClientEntity convertAllCreditStatusDtoListToClientList(CreditStatusDto creditStatusDto);
 }

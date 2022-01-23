@@ -29,7 +29,7 @@ public class ClientController {
     }
 
 
-    //BURASI FULLNAME VE CREDİ SKORUNU DONUYO SU AN GÖRMEK İÇİN YAZDIM. 
+    //BURASI FULLNAME VE CREDİ SKORUNU DONUYO SU AN GÖRMEK İÇİN YAZDIM.
     @GetMapping("/allClients")
     public ResponseEntity<List<ClientResponseDto>> getAllClients(){
         return ResponseEntity.status(HttpStatus.OK).body(clientService.getAllClients());
