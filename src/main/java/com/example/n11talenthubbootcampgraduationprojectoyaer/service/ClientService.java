@@ -2,6 +2,7 @@ package com.example.n11talenthubbootcampgraduationprojectoyaer.service;
 
 
 import com.example.n11talenthubbootcampgraduationprojectoyaer.converter.ClientEntityConverter;
+import com.example.n11talenthubbootcampgraduationprojectoyaer.creditApplicationStrategy.*;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.dao.ClientDao;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.dto.ClientDto;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.dto.ClientRequestDto;
@@ -14,6 +15,8 @@ import com.example.n11talenthubbootcampgraduationprojectoyaer.util.CreditScore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -26,6 +29,9 @@ public class ClientService {
     @Autowired
     CreditScore creditScore;
 
+
+    //strategy class
+    private CreditApplication creditApplication;
 
 
     public List<ClientResponseDto> getAllClients(){
@@ -50,9 +56,32 @@ public class ClientService {
         else{
             clientEntity.setCreditScore(creditScore.calculateCreditScore(clientEntity));
             clientDao.save(clientEntity);
+            creditApprove(clientEntity.getCreditScore(),clientEntity.getIncome(),clientEntity.getAssurance(),clientEntity);
 
             return clientDto;
         }
+
+    }
+
+    public void creditApprove(int creditScore, BigDecimal income,BigDecimal assurance, ClientEntity client){
+        if(creditScore<500){
+            setCreditApplicationStrategy(new ConcreteCreditApplicationCase1());
+        }
+        if( (500< creditScore && creditScore<1000) && income.compareTo(new BigDecimal(5000))==-1){
+            setCreditApplicationStrategy(new ConcreteCreditApplicationCase2());
+        }
+        if((500< creditScore && creditScore<1000 )&& (income.compareTo(new BigDecimal(5000))==1 && income.compareTo(new BigDecimal(10000))==-1)){
+            setCreditApplicationStrategy(new ConcreteCreditApplicationCase3());
+        }
+        if( (500< creditScore && creditScore<1000) && income.compareTo(new BigDecimal(10000))==1){
+            setCreditApplicationStrategy(new ConcreteCreditApplicationCase4());
+        }
+        if( creditScore>=1000 ){
+            setCreditApplicationStrategy(new ConcreteCreditApplicationCase5());
+        }
+
+        executeCreditApplicationStrategy(creditScore,income,assurance,client);
+
 
     }
 
@@ -98,5 +127,13 @@ public class ClientService {
             return true;
         }
         return false;
+    }
+
+    public void setCreditApplicationStrategy(CreditApplication creditApplication) {
+        this.creditApplication = creditApplication;
+    }
+
+    public void executeCreditApplicationStrategy(int creditScore, BigDecimal income,BigDecimal assurance, ClientEntity client){
+        creditApplication.creditApproval(creditScore,income,assurance,client);
     }
 }

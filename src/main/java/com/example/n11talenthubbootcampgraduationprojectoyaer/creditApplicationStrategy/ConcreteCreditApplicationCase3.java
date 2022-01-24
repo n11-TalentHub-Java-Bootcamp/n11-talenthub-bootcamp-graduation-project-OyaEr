@@ -7,20 +7,20 @@ import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.CreditAppli
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class ConcreteCreditApplicationCase2 implements CreditApplication{
+public class ConcreteCreditApplicationCase3 implements CreditApplication{
 
     CreditApplicationInfoDao infoDao;
 
     private final int creditLimitMultiplier=4; //BUNLAR STRATEGY INTERFACINDENGELİR Mİ??
-    BigDecimal creditLimit = new BigDecimal(10000);
+    BigDecimal creditLimit = new BigDecimal(20000);
     BigDecimal assuranceResult = new BigDecimal(0);
 
     @Override
-    public void creditApproval(int creditScore, BigDecimal income,BigDecimal assurance, ClientEntity client) {
+    public void creditApproval(int creditScore, BigDecimal income, BigDecimal assurance, ClientEntity client) {
 
         if(!(assurance.compareTo(new BigDecimal(0)) == 0)){
 
-            assuranceResult.add(assurance.multiply(new BigDecimal(10)).divide(new BigDecimal(100)));
+            assuranceResult.add(assurance.multiply(new BigDecimal(20)).divide(new BigDecimal(100)));
 
             creditLimit.add(assuranceResult);
 
@@ -42,5 +42,6 @@ public class ConcreteCreditApplicationCase2 implements CreditApplication{
 
             infoDao.save(clientInfo);
         }
+
     }
 }

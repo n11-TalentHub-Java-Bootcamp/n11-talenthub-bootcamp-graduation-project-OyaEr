@@ -4,11 +4,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name= "CLIENT")
@@ -39,7 +37,7 @@ public class ClientEntity {
     @JsonFormat(pattern="yyyy-MM-dd")
     private Date birthDate;
 
-    @Column(name="ASSURANCE", precision = 19, scale = 2)
+    @Column(name="ASSURANCE",nullable = false, precision = 19, scale = 2)
     private BigDecimal assurance;
 
     @Column(name="CREDIT_SCORE" ) //nullable = false , int??
