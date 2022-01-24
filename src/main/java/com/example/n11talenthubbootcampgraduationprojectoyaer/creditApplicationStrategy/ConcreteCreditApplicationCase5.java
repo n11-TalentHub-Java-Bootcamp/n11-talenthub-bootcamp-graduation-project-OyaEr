@@ -1,12 +1,13 @@
-package com.example.n11talenthubbootcampgraduationprojectoyaer.creditApplicationStrategy;
+package com.example.n11talenthubbootcampgraduationprojectoyaer.service.creditApplicationStrategy;
 
 import com.example.n11talenthubbootcampgraduationprojectoyaer.dao.CreditApplicationInfoDao;
-import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.ClientEntity;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.CreditApplicationInfoEntity;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
+@Transactional
 public class ConcreteCreditApplicationCase5 implements CreditApplication{
 
     CreditApplicationInfoDao infoDao;
@@ -16,7 +17,7 @@ public class ConcreteCreditApplicationCase5 implements CreditApplication{
     BigDecimal assuranceResult = new BigDecimal(0);
 
     @Override
-    public void creditApproval(int creditScore, BigDecimal income, BigDecimal assurance, ClientEntity client) {
+    public void creditApproval(int creditScore, BigDecimal income, BigDecimal assurance, Long clientEntityId) {
 
         if(!(assurance.compareTo(new BigDecimal(0)) == 0)){
 
@@ -27,7 +28,7 @@ public class ConcreteCreditApplicationCase5 implements CreditApplication{
             creditLimit.add(assuranceResult);
 
             CreditApplicationInfoEntity clientInfo=null;
-            clientInfo.setClient(client);
+//            clientInfo.setClient(clientEntity);
             clientInfo.setApplicationDate(new Date());
             clientInfo.setCreditLimit(creditLimit);
             clientInfo.setCreditStatus("ONAY");
@@ -38,7 +39,7 @@ public class ConcreteCreditApplicationCase5 implements CreditApplication{
         else{
             creditLimit.add(income.multiply(new BigDecimal(creditLimitMultiplier)));
             CreditApplicationInfoEntity clientInfo=null;
-            clientInfo.setClient(client);
+//            clientInfo.setClient(clientEntity);
             clientInfo.setApplicationDate(new Date());
             clientInfo.setCreditLimit(creditLimit);
             clientInfo.setCreditStatus("ONAY");
