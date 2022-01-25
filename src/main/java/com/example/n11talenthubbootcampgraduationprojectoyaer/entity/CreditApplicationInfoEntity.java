@@ -37,4 +37,7 @@ public class CreditApplicationInfoEntity {
     @JoinColumn(name = "CLIENT_ID", foreignKey = @ForeignKey(name = "FK_CLIENT_CREDIT_ID"))
     private ClientEntity client;
 
+    //@Column(name="CLIENT_ID", nullable = false)
+    //private Long clientId;
+
 }

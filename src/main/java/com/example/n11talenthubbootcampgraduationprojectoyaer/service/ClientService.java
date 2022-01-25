@@ -1,18 +1,20 @@
 package com.example.n11talenthubbootcampgraduationprojectoyaer.service;
 
-
 import com.example.n11talenthubbootcampgraduationprojectoyaer.converter.ClientEntityConverter;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.creditApplicationStrategy.*;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.dao.ClientDao;
+import com.example.n11talenthubbootcampgraduationprojectoyaer.dao.CreditApplicationInfoDao;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.dto.ClientDto;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.dto.ClientRequestDto;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.dto.ClientResponseDto;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.ClientEntity;
+import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.CreditApplicationInfoEntity;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.exception.ClientDoesNotExist;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.exception.IDNumberDoesNotExistException;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.exception.SameIdNumberException;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.util.CreditScore;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,13 +23,18 @@ import java.util.List;
 
 @Service
 @Transactional
+@Configurable
 public class ClientService {
 
     @Autowired
-    ClientDao clientDao;
+    private ClientDao clientDao;
 
     @Autowired
-    CreditScore creditScore;
+    private CreditScore creditScore;
+
+    @Autowired
+    private CreditApplicationInfoDao infoDao;
+
 
 
     //strategy class
@@ -56,14 +63,15 @@ public class ClientService {
         else{
             clientEntity.setCreditScore(creditScore.calculateCreditScore(clientEntity));
             clientDao.save(clientEntity);
-            creditApprove(clientEntity.getCreditScore(),clientEntity.getIncome(),clientEntity.getAssurance(),clientEntity);
+            CreditApplicationInfoEntity infoEntity = creditApprove(clientEntity.getCreditScore(),clientEntity.getIncome(),clientEntity.getAssurance(),clientEntity);
 
+            infoDao.save(infoEntity);
             return clientDto;
         }
 
     }
 
-    public void creditApprove(int creditScore, BigDecimal income,BigDecimal assurance, ClientEntity client){
+    public CreditApplicationInfoEntity creditApprove(int creditScore, BigDecimal income,BigDecimal assurance, ClientEntity clientEntity){
         if(creditScore<500){
             setCreditApplicationStrategy(new ConcreteCreditApplicationCase1());
         }
@@ -80,23 +88,33 @@ public class ClientService {
             setCreditApplicationStrategy(new ConcreteCreditApplicationCase5());
         }
 
-        executeCreditApplicationStrategy(creditScore,income,assurance,client);
-
+        return executeCreditApplicationStrategy(creditScore,income,assurance,clientEntity);
 
     }
 
     public ClientDto updateClientInfo(String idNum, ClientRequestDto clientRequestDto) {
 
-
         boolean isClientExist= isClientExist(idNum);
         ClientEntity clientEntity = clientDao.findByIdNum(idNum);
+        Long clientId= clientEntity.getId();
+        List<CreditApplicationInfoEntity> clientApproveList = infoDao.findByClientId(clientId);
 
         if(isClientExist){
             clientEntity.setAssurance(clientRequestDto.getAssurance());
             clientEntity.setIncome(clientRequestDto.getIncome());
             clientEntity.setPhoneNum(clientRequestDto.getPhoneNum());
-            ClientDto clientDto = ClientEntityConverter.INSTANCE.convertAllClientListToClientDtoList(clientEntity);
+            clientEntity.setCreditScore(creditScore.calculateCreditScore(clientEntity));
 
+            for (CreditApplicationInfoEntity infoEntity : clientApproveList) {
+                if(infoEntity.getCreditStatus().equals("ONAY")){
+                    System.out.println("Onaylı başvuru var, başvuru yapılamaz.");
+                }
+            }
+
+            CreditApplicationInfoEntity creditInfo =creditApprove(clientEntity.getCreditScore(),clientEntity.getIncome(),clientEntity.getAssurance(),clientEntity);
+            infoDao.save(creditInfo);
+
+            ClientDto clientDto = ClientEntityConverter.INSTANCE.convertAllClientListToClientDtoList(clientEntity);
             return clientDto;
         }
         else{
@@ -133,7 +151,7 @@ public class ClientService {
         this.creditApplication = creditApplication;
     }
 
-    public void executeCreditApplicationStrategy(int creditScore, BigDecimal income,BigDecimal assurance, ClientEntity client){
-        creditApplication.creditApproval(creditScore,income,assurance,client);
+    public CreditApplicationInfoEntity executeCreditApplicationStrategy(int creditScore, BigDecimal income,BigDecimal assurance, ClientEntity clientEntity){
+        return creditApplication.creditApproval(creditScore,income,assurance,clientEntity);
     }
 }

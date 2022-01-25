@@ -10,5 +10,5 @@ import java.util.List;
 @Repository
 public interface CreditApplicationInfoDao extends JpaRepository<CreditApplicationInfoEntity,Long> {
 
-    List<CreditApplicationInfoEntity> findByClient(ClientEntity client);
+    List<CreditApplicationInfoEntity> findByClientId(Long clientId);
 }

@@ -1,50 +1,46 @@
-package com.example.n11talenthubbootcampgraduationprojectoyaer.service.creditApplicationStrategy;
-
-import com.example.n11talenthubbootcampgraduationprojectoyaer.dao.CreditApplicationInfoDao;
+package com.example.n11talenthubbootcampgraduationprojectoyaer.creditApplicationStrategy;
+import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.ClientEntity;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.CreditApplicationInfoEntity;
-import org.springframework.transaction.annotation.Transactional;
+
 
 import java.math.BigDecimal;
 import java.util.Date;
 
-@Transactional
-public class ConcreteCreditApplicationCase5 implements CreditApplication{
 
-    CreditApplicationInfoDao infoDao;
+public class ConcreteCreditApplicationCase5 implements CreditApplication{
 
     private final int creditLimitMultiplier=4; //BUNLAR STRATEGY INTERFACINDENGELİR Mİ??
     BigDecimal creditLimit = new BigDecimal(0);
     BigDecimal assuranceResult = new BigDecimal(0);
 
     @Override
-    public void creditApproval(int creditScore, BigDecimal income, BigDecimal assurance, Long clientEntityId) {
+    public CreditApplicationInfoEntity creditApproval(int creditScore, BigDecimal income, BigDecimal assurance, ClientEntity clientEntity) {
 
         if(!(assurance.compareTo(new BigDecimal(0)) == 0)){
 
             creditLimit.add(income.multiply(new BigDecimal(creditLimitMultiplier)));
 
-            assuranceResult.add(assurance.multiply(new BigDecimal(50)).divide(new BigDecimal(100)));
+            assuranceResult = assuranceResult.add(assurance.multiply(new BigDecimal(50)).divide(new BigDecimal(100)));
 
-            creditLimit.add(assuranceResult);
+            creditLimit = creditLimit.add(assuranceResult);
 
-            CreditApplicationInfoEntity clientInfo=null;
-//            clientInfo.setClient(clientEntity);
+            CreditApplicationInfoEntity clientInfo = new CreditApplicationInfoEntity();
+            clientInfo.setClient(clientEntity);
             clientInfo.setApplicationDate(new Date());
             clientInfo.setCreditLimit(creditLimit);
             clientInfo.setCreditStatus("ONAY");
-
-            infoDao.save(clientInfo);
+            return clientInfo;
         }
 
         else{
-            creditLimit.add(income.multiply(new BigDecimal(creditLimitMultiplier)));
-            CreditApplicationInfoEntity clientInfo=null;
-//            clientInfo.setClient(clientEntity);
+            creditLimit =  creditLimit.add(income.multiply(new BigDecimal(creditLimitMultiplier)));
+            CreditApplicationInfoEntity clientInfo = new CreditApplicationInfoEntity();
+            clientInfo.setClient(clientEntity);
             clientInfo.setApplicationDate(new Date());
             clientInfo.setCreditLimit(creditLimit);
             clientInfo.setCreditStatus("ONAY");
+            return clientInfo;
 
-            infoDao.save(clientInfo);
         }
 
     }

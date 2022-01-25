@@ -3,19 +3,48 @@ import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.ClientEntit
 
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
+
 
 @Component
 public class CreditScore {
 
         public  int calculateCreditScore(ClientEntity client){
 
-            String idNum= client.getIdNum();
+            int creditScore=0;
 
-            String threeDigit = idNum.substring(8);
+            if(client.getIncome().compareTo(new BigDecimal(3000)) < 0 ){
 
-            int digits= Integer.parseInt(threeDigit);
+                creditScore=400;
+            }
 
-            int creditScore= digits +100;
+            if ((client.getIncome().compareTo(new BigDecimal(3000)) >= 0) && (client.getIncome().compareTo(new BigDecimal(5000))< 0)){
+
+                creditScore=500;
+            }
+
+            if ((client.getIncome().compareTo(new BigDecimal(5000)) >=0) && (client.getIncome().compareTo(new BigDecimal(8000))<0)){
+
+                creditScore=700;
+            }
+
+            if ((client.getIncome().compareTo(new BigDecimal(8000)) >= 0)  &&(client.getIncome().compareTo(new BigDecimal(10000))< 0)){
+
+                creditScore=900;
+            }
+
+            if ((client.getIncome().compareTo(new BigDecimal(10000))>=0)){
+
+                creditScore=1000;
+            }
+
+//            String idNum= client.getIdNum();
+//
+//            String threeDigit = idNum.substring(8);
+//
+//            int digits= Integer.parseInt(threeDigit);
+//
+//            int creditScore= digits +100;
 
             return creditScore;
         }
