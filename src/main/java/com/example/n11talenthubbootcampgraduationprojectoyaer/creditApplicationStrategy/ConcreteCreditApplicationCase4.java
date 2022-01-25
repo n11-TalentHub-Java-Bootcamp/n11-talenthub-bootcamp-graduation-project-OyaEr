@@ -11,12 +11,13 @@ import java.util.Date;
 
 public class ConcreteCreditApplicationCase4 implements CreditApplication{
 
-    private final int creditLimitMultiplier=2; //BUNLAR STRATEGY INTERFACINDENGELİR Mİ??
-    BigDecimal creditLimit = new BigDecimal(0);
-    BigDecimal assuranceResult = new BigDecimal(0);
+    private final int creditLimitMultiplier=2;
 
     @Override
     public CreditApplicationInfoEntity creditApproval(int creditScore, BigDecimal income, BigDecimal assurance, ClientEntity clientEntity) {
+
+        BigDecimal creditLimit = new BigDecimal(0);
+        BigDecimal assuranceResult = new BigDecimal(0);
 
         if(!(assurance.compareTo(new BigDecimal(0)) == 0)){
 

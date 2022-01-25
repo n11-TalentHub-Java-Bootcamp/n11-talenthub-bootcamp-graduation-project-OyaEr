@@ -33,7 +33,12 @@ public class CreditScore {
                 creditScore=900;
             }
 
-            if ((client.getIncome().compareTo(new BigDecimal(10000))>=0)){
+            if ((client.getIncome().compareTo(new BigDecimal(10000))>=0) && (client.getIncome().compareTo(new BigDecimal(30000))<0)){
+
+                creditScore=950;
+            }
+
+            if ((client.getIncome().compareTo(new BigDecimal(30000))>=0)){
 
                 creditScore=1000;
             }

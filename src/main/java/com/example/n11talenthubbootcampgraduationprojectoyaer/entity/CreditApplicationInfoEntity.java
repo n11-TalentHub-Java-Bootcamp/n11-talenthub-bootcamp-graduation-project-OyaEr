@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -34,10 +37,8 @@ public class CreditApplicationInfoEntity {
     @ManyToOne(
             optional = false
     )
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "CLIENT_ID", foreignKey = @ForeignKey(name = "FK_CLIENT_CREDIT_ID"))
     private ClientEntity client;
-
-    //@Column(name="CLIENT_ID", nullable = false)
-    //private Long clientId;
 
 }

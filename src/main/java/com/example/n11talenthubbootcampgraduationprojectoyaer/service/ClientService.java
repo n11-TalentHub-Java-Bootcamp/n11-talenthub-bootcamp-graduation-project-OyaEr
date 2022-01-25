@@ -75,13 +75,13 @@ public class ClientService {
         if(creditScore<500){
             setCreditApplicationStrategy(new ConcreteCreditApplicationCase1());
         }
-        if( (500< creditScore && creditScore<1000) && income.compareTo(new BigDecimal(5000))==-1){
+        if( (500<= creditScore && creditScore<1000) && income.compareTo(new BigDecimal(5000))<0){
             setCreditApplicationStrategy(new ConcreteCreditApplicationCase2());
         }
-        if((500< creditScore && creditScore<1000 )&& (income.compareTo(new BigDecimal(5000))==1 && income.compareTo(new BigDecimal(10000))==-1)){
+        if((500<= creditScore && creditScore<1000 )&& (income.compareTo(new BigDecimal(5000))>=0 && income.compareTo(new BigDecimal(10000)) <0)){
             setCreditApplicationStrategy(new ConcreteCreditApplicationCase3());
         }
-        if( (500< creditScore && creditScore<1000) && income.compareTo(new BigDecimal(10000))==1){
+        if((500<= creditScore && creditScore<1000) && income.compareTo(new BigDecimal(10000))>=0){
             setCreditApplicationStrategy(new ConcreteCreditApplicationCase4());
         }
         if( creditScore>=1000 ){
