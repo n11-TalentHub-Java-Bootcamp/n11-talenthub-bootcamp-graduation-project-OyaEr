@@ -1,6 +1,6 @@
 package com.example.n11talenthubbootcampgraduationprojectoyaer.creditApplicationStrategy;
-import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.ClientEntity;
-import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.CreditApplicationInfoEntity;
+import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.Customer;
+import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.CreditApplicationInfo;
 
 
 import java.math.BigDecimal;
@@ -10,8 +10,8 @@ import java.util.Date;
 public class ConcreteCreditApplicationCase2 implements CreditApplication{
 
     @Override
-    public CreditApplicationInfoEntity creditApproval(int creditScore, BigDecimal income,BigDecimal assurance, ClientEntity clientEntity) {
-        CreditApplicationInfoEntity clientInfo = new CreditApplicationInfoEntity();
+    public CreditApplicationInfo creditApproval(int creditScore, BigDecimal income, BigDecimal assurance, Customer customer) {
+        CreditApplicationInfo customerInfo = new CreditApplicationInfo();
         BigDecimal creditLimit = new BigDecimal(10000);
         BigDecimal assuranceResult = new BigDecimal(0);
 
@@ -21,21 +21,21 @@ public class ConcreteCreditApplicationCase2 implements CreditApplication{
 
             creditLimit = creditLimit.add(assuranceResult);
 
-            clientInfo.setClient(clientEntity);
-            clientInfo.setApplicationDate(new Date());
-            clientInfo.setCreditLimit(creditLimit);
-            clientInfo.setCreditStatus("ONAY");
+            customerInfo.setCustomer(customer);
+            customerInfo.setApplicationDate(new Date());
+            customerInfo.setCreditLimit(creditLimit);
+            customerInfo.setCreditStatus("ONAY");
 
-            return clientInfo;
+            return customerInfo;
         }
 
         else{
-            clientInfo.setClient(clientEntity);
-            clientInfo.setApplicationDate(new Date());
-            clientInfo.setCreditLimit(creditLimit);
-            clientInfo.setCreditStatus("ONAY");
+            customerInfo.setCustomer(customer);
+            customerInfo.setApplicationDate(new Date());
+            customerInfo.setCreditLimit(creditLimit);
+            customerInfo.setCreditStatus("ONAY");
 
-            return clientInfo;
+            return customerInfo;
 
         }
     }

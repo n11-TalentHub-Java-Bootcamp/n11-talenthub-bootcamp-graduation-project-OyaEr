@@ -16,7 +16,7 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreditApplicationInfoEntity {
+public class CreditApplicationInfo {
 
     @Id
     @GeneratedValue
@@ -38,7 +38,7 @@ public class CreditApplicationInfoEntity {
             optional = false
     )
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumn(name = "CLIENT_ID", foreignKey = @ForeignKey(name = "FK_CLIENT_CREDIT_ID"))
-    private ClientEntity client;
+    @JoinColumn(name = "CUSTOMER_ID", foreignKey = @ForeignKey(name = "FK_CUSTOMER_CREDIT_ID"))
+    private Customer customer;
 
 }

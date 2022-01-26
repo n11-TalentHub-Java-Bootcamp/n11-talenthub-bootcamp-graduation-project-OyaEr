@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClientRequestDto {
+public class CustomerRequestDto {
 
     private BigDecimal income;
     private BigDecimal assurance;

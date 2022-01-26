@@ -1,6 +1,6 @@
 package com.example.n11talenthubbootcampgraduationprojectoyaer.creditApplicationStrategy;
-import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.ClientEntity;
-import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.CreditApplicationInfoEntity;
+import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.Customer;
+import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.CreditApplicationInfo;
 
 
 import java.math.BigDecimal;
@@ -9,11 +9,11 @@ import java.util.Date;
 
 public class ConcreteCreditApplicationCase5 implements CreditApplication{
 
-    private final int creditLimitMultiplier=4; //BUNLAR STRATEGY INTERFACINDENGELİR Mİ??
+    private final int creditLimitMultiplier=4;
 
 
     @Override
-    public CreditApplicationInfoEntity creditApproval(int creditScore, BigDecimal income, BigDecimal assurance, ClientEntity clientEntity) {
+    public CreditApplicationInfo creditApproval(int creditScore, BigDecimal income, BigDecimal assurance, Customer customer) {
 
         BigDecimal creditLimit = new BigDecimal(0);
         BigDecimal assuranceResult = new BigDecimal(0);
@@ -26,22 +26,22 @@ public class ConcreteCreditApplicationCase5 implements CreditApplication{
 
             creditLimit = creditLimit.add(assuranceResult);
 
-            CreditApplicationInfoEntity clientInfo = new CreditApplicationInfoEntity();
-            clientInfo.setClient(clientEntity);
-            clientInfo.setApplicationDate(new Date());
-            clientInfo.setCreditLimit(creditLimit);
-            clientInfo.setCreditStatus("ONAY");
-            return clientInfo;
+            CreditApplicationInfo customerInfo = new CreditApplicationInfo();
+            customerInfo.setCustomer(customer);
+            customerInfo.setApplicationDate(new Date());
+            customerInfo.setCreditLimit(creditLimit);
+            customerInfo.setCreditStatus("ONAY");
+            return customerInfo;
         }
 
         else{
             creditLimit =  creditLimit.add(income.multiply(new BigDecimal(creditLimitMultiplier)));
-            CreditApplicationInfoEntity clientInfo = new CreditApplicationInfoEntity();
-            clientInfo.setClient(clientEntity);
-            clientInfo.setApplicationDate(new Date());
-            clientInfo.setCreditLimit(creditLimit);
-            clientInfo.setCreditStatus("ONAY");
-            return clientInfo;
+            CreditApplicationInfo customerInfo = new CreditApplicationInfo();
+            customerInfo.setCustomer(customer);
+            customerInfo.setApplicationDate(new Date());
+            customerInfo.setCreditLimit(creditLimit);
+            customerInfo.setCreditStatus("ONAY");
+            return customerInfo;
 
         }
 

@@ -9,11 +9,11 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-@Table(name= "CLIENT")
+@Table(name= "CUSTOMER")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClientEntity {
+public class Customer {
 
     @Id
     @GeneratedValue

@@ -3,7 +3,6 @@ package com.example.n11talenthubbootcampgraduationprojectoyaer.controller;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.dto.CreditStatusDto;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.service.CreditApplicationInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +15,7 @@ import java.util.Date;
 public class CreditApplicationInfoController {
 
     @Autowired
-    CreditApplicationInfoService infoService;
+    private CreditApplicationInfoService infoService;
 
     @PostMapping("")
      public ResponseEntity<String> getCreditApproval (@RequestBody CreditStatusDto creditStatusDto){
