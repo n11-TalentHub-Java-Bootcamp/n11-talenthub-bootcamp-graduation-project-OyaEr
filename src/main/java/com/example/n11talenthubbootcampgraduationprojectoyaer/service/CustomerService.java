@@ -8,6 +8,7 @@ import com.example.n11talenthubbootcampgraduationprojectoyaer.dto.CustomerDto;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.dto.CustomerRequestDto;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.Customer;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.CreditApplicationInfo;
+import com.example.n11talenthubbootcampgraduationprojectoyaer.enums.CreditStatusType;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.exception.ApprovedApplicationException;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.exception.CustomerDoesNotExistException;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.exception.IDNumberDoesNotExistException;
@@ -37,6 +38,9 @@ public class CustomerService {
     @Autowired
     private CreditApplicationInfoDao infoDao;
 
+    @Autowired
+    private CreditApplicationInfoService infoService;
+
 
 
     private CreditApplication creditApplication;
@@ -55,9 +59,11 @@ public class CustomerService {
         else{
             customer.setCreditScore(creditScore.calculateCreditScore(customer));
             customerDao.save(customer);
-            CreditApplicationInfo infoEntity = creditApprove(customer.getCreditScore(), customer.getIncome(), customer.getAssurance(), customer);
+            CreditApplicationInfo creditInfo = creditApprove(customer.getCreditScore(), customer.getIncome(), customer.getAssurance(), customer);
 
-            infoDao.save(infoEntity);
+            infoDao.save(creditInfo);
+            infoService.sendSms(customer,creditInfo);
+
             return customerDto;
         }
 
@@ -92,19 +98,21 @@ public class CustomerService {
         List<CreditApplicationInfo> customerApproveList = infoDao.findByCustomerId(customerId);
 
         if(isCustomerExist){
+
             customer.setAssurance(customerRequestDto.getAssurance());
             customer.setIncome(customerRequestDto.getIncome());
             customer.setPhoneNum(customerRequestDto.getPhoneNum());
             customer.setCreditScore(creditScore.calculateCreditScore(customer));
 
             for (CreditApplicationInfo infoEntity : customerApproveList) {
-                if(infoEntity.getCreditStatus().equals("ONAY")){
+                if(infoEntity.getCreditStatus().equals(CreditStatusType.ONAY.getCreditStatus())){
                     throw new ApprovedApplicationException("There is an approved application.Can not apply.");
                 }
             }
 
             CreditApplicationInfo creditInfo =creditApprove(customer.getCreditScore(), customer.getIncome(), customer.getAssurance(), customer);
             infoDao.save(creditInfo);
+            infoService.sendSms(customer,creditInfo);
 
             CustomerDto customerDto = CustomerConverter.INSTANCE.convertAllCustomerListToCustomerDtoList(customer);
             return customerDto;

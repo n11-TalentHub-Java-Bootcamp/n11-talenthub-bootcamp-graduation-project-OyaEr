@@ -5,12 +5,14 @@ import com.example.n11talenthubbootcampgraduationprojectoyaer.dao.CreditApplicat
 import com.example.n11talenthubbootcampgraduationprojectoyaer.dto.CreditStatusDto;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.Customer;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.CreditApplicationInfo;
+import com.example.n11talenthubbootcampgraduationprojectoyaer.enums.CreditStatusType;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.exception.IDNumberAndBirthDateNotMatchException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
@@ -27,16 +29,6 @@ public class CreditApplicationInfoService {
     @Autowired
     private CreditApplicationInfoDao infoDao;
 
-
-//    private final SmsSender smsSender;
-//
-//    private final SmsRequest smsRequest;
-//
-//    @Autowired
-//    public CreditApplicationInfoService(@Qualifier("twilio") TwilioSmsSender smsSender, SmsRequest smsRequest) {
-//        this.smsSender = smsSender;
-//        this.smsRequest = smsRequest;
-//    }
 
     public String getCreditStatus(CreditStatusDto creditStatusDto) {
 
@@ -55,13 +47,12 @@ public class CreditApplicationInfoService {
 
             for (CreditApplicationInfo infoEntity : infoCustomer) {
 
-                if(infoEntity.getCreditStatus().equals("ONAY")){
+                if(infoEntity.getCreditStatus().equals(CreditStatusType.ONAY.getCreditStatus())){
 
                     return "Kredi Sonucu:" + infoEntity.getCreditStatus() +  "\r" +"Kredi Limiti:" + infoEntity.getCreditLimit();
                 }
 
             }
-            log.info("Kredi sonucu başarıyla görüntülendi.");
             return "Kredi Sonucu: RED";
         }
         else {
@@ -70,8 +61,13 @@ public class CreditApplicationInfoService {
 
     }
 
-//    public void sendSms(SmsRequest smsRequest) {
-//
-//        smsSender.sendSms(smsRequest);
-//    }
+    public void sendSms(Customer customer, CreditApplicationInfo info) {
+
+        String phoneNumber= customer.getPhoneNum();
+        String creditStatus= info.getCreditStatus();
+        BigDecimal creditLimit=info.getCreditLimit();
+
+        log.info("Kredi Sonucu: " + creditStatus + " " + "Kredi Limit: " + creditLimit + " " + phoneNumber + " numaralı kullanıcıya gönderildi.");
+
+    }
 }

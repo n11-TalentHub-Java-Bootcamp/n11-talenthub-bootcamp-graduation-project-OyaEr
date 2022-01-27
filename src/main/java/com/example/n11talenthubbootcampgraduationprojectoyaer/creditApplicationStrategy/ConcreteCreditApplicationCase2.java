@@ -1,6 +1,7 @@
 package com.example.n11talenthubbootcampgraduationprojectoyaer.creditApplicationStrategy;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.Customer;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.CreditApplicationInfo;
+import com.example.n11talenthubbootcampgraduationprojectoyaer.enums.CreditStatusType;
 
 
 import java.math.BigDecimal;
@@ -11,7 +12,7 @@ public class ConcreteCreditApplicationCase2 implements CreditApplication{
 
     @Override
     public CreditApplicationInfo creditApproval(int creditScore, BigDecimal income, BigDecimal assurance, Customer customer) {
-        CreditApplicationInfo customerInfo = new CreditApplicationInfo();
+
         BigDecimal creditLimit = new BigDecimal(10000);
         BigDecimal assuranceResult = new BigDecimal(0);
 
@@ -21,19 +22,24 @@ public class ConcreteCreditApplicationCase2 implements CreditApplication{
 
             creditLimit = creditLimit.add(assuranceResult);
 
-            customerInfo.setCustomer(customer);
-            customerInfo.setApplicationDate(new Date());
-            customerInfo.setCreditLimit(creditLimit);
-            customerInfo.setCreditStatus("ONAY");
+            CreditApplicationInfo customerInfo = CreditApplicationInfo.builder()
+                    .customer(customer)
+                    .applicationDate(new Date())
+                    .creditLimit(creditLimit)
+                    .creditStatus(CreditStatusType.ONAY.getCreditStatus())
+                    .build();
 
             return customerInfo;
         }
 
         else{
-            customerInfo.setCustomer(customer);
-            customerInfo.setApplicationDate(new Date());
-            customerInfo.setCreditLimit(creditLimit);
-            customerInfo.setCreditStatus("ONAY");
+
+            CreditApplicationInfo customerInfo = CreditApplicationInfo.builder()
+                    .customer(customer)
+                    .applicationDate(new Date())
+                    .creditLimit(creditLimit)
+                    .creditStatus(CreditStatusType.ONAY.getCreditStatus())
+                    .build();
 
             return customerInfo;
 

@@ -2,6 +2,7 @@ package com.example.n11talenthubbootcampgraduationprojectoyaer.creditApplication
 
 import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.Customer;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.CreditApplicationInfo;
+import com.example.n11talenthubbootcampgraduationprojectoyaer.enums.CreditStatusType;
 
 
 import java.math.BigDecimal;
@@ -10,16 +11,14 @@ import java.util.Date;
 
 public class ConcreteCreditApplicationCase1 implements CreditApplication{
 
-    //private CreditStatusType creditStatusType;
-
     @Override
     public CreditApplicationInfo creditApproval(int creditScore, BigDecimal income, BigDecimal assurance, Customer customer) {
-
-        CreditApplicationInfo customerInfo = new CreditApplicationInfo();
-        customerInfo.setCustomer(customer);
-        customerInfo.setApplicationDate(new Date());
-        customerInfo.setCreditLimit(new BigDecimal(0));
-        customerInfo.setCreditStatus("RED");
+        CreditApplicationInfo customerInfo = CreditApplicationInfo.builder()
+                .customer(customer)
+                .applicationDate(new Date())
+                .creditLimit(new BigDecimal (0))
+                .creditStatus(CreditStatusType.RED.getCreditStatus())
+                .build();
         return customerInfo;
     }
 }

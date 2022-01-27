@@ -1,13 +1,14 @@
 package com.example.n11talenthubbootcampgraduationprojectoyaer.creditApplicationStrategy;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.Customer;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.CreditApplicationInfo;
+import com.example.n11talenthubbootcampgraduationprojectoyaer.enums.CreditLimitMultiplier;
+import com.example.n11talenthubbootcampgraduationprojectoyaer.enums.CreditStatusType;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
 public class ConcreteCreditApplicationCase4 implements CreditApplication{
 
-    private final int creditLimitMultiplier=2;
 
     @Override
     public CreditApplicationInfo creditApproval(int creditScore, BigDecimal income, BigDecimal assurance, Customer customer) {
@@ -17,27 +18,32 @@ public class ConcreteCreditApplicationCase4 implements CreditApplication{
 
         if(!(assurance.compareTo(new BigDecimal(0)) == 0)){
 
-            creditLimit = creditLimit.add(income.multiply(new BigDecimal(creditLimitMultiplier)));
+            creditLimit = creditLimit.add(income.multiply(new BigDecimal(CreditLimitMultiplier.TWO.getLimitMultiplier())));
 
             assuranceResult = assuranceResult.add(assurance.multiply(new BigDecimal(25)).divide(new BigDecimal(100)));
 
             creditLimit = creditLimit.add(assuranceResult);
 
-            CreditApplicationInfo customerInfo = new CreditApplicationInfo();
-            customerInfo.setCustomer(customer);
-            customerInfo.setApplicationDate(new Date());
-            customerInfo.setCreditLimit(creditLimit);
-            customerInfo.setCreditStatus("ONAY");
+            CreditApplicationInfo customerInfo = CreditApplicationInfo.builder()
+                    .customer(customer)
+                    .applicationDate(new Date())
+                    .creditLimit(creditLimit)
+                    .creditStatus(CreditStatusType.ONAY.getCreditStatus())
+                    .build();
+
             return customerInfo;
         }
 
         else{
-            creditLimit = creditLimit.add(income.multiply(new BigDecimal(creditLimitMultiplier)));
-            CreditApplicationInfo customerInfo = new CreditApplicationInfo();
-            customerInfo.setCustomer(customer);
-            customerInfo.setApplicationDate(new Date());
-            customerInfo.setCreditLimit(creditLimit);
-            customerInfo.setCreditStatus("ONAY");
+            creditLimit = creditLimit.add(income.multiply(new BigDecimal(CreditLimitMultiplier.TWO.getLimitMultiplier())));
+
+            CreditApplicationInfo customerInfo = CreditApplicationInfo.builder()
+                    .customer(customer)
+                    .applicationDate(new Date())
+                    .creditLimit(creditLimit)
+                    .creditStatus(CreditStatusType.ONAY.getCreditStatus())
+                    .build();
+
             return customerInfo;
         }
 
