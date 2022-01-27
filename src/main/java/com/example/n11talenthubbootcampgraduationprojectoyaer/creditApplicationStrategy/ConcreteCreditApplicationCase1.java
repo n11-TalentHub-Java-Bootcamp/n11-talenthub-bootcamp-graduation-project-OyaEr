@@ -3,12 +3,14 @@ package com.example.n11talenthubbootcampgraduationprojectoyaer.creditApplication
 import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.Customer;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.CreditApplicationInfo;
 
+
 import java.math.BigDecimal;
 import java.util.Date;
 
 
 public class ConcreteCreditApplicationCase1 implements CreditApplication{
 
+    //private CreditStatusType creditStatusType;
 
     @Override
     public CreditApplicationInfo creditApproval(int creditScore, BigDecimal income, BigDecimal assurance, Customer customer) {

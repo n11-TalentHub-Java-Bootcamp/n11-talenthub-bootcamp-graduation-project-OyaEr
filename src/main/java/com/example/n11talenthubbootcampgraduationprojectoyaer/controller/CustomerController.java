@@ -11,33 +11,32 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RestController
-@RequestMapping("api/customers")
+@RequestMapping("api/v1/customers")
 @CrossOrigin
-@Tag(name = "Customer Controller", description = "Here we can list, save, delete and update customers.")
+@Tag(name = "Customer Controller", description = "We can save, update and delete customers.")
 public class CustomerController {
 
     @Autowired
     private CustomerService customerService;
 
 
+    @Operation(summary = "Customers were registered and credit applications were made.")
     @PostMapping("")
-    @Operation(summary = "All customers are listed.")
     public ResponseEntity<CustomerDto> saveCustomers(@RequestBody CustomerDto customerDto){
         return ResponseEntity.status(HttpStatus.CREATED).body(customerService.saveCustomers(customerDto));
     }
 
 
+    @Operation(summary = "Customers were registered and credit applications were redone according to the updates.")
     @PutMapping("{idNum}")
-    @Operation(summary = "All customers are listed.")
     public ResponseEntity<CustomerDto> updateCustomerInfo (@PathVariable String idNum , @RequestBody CustomerRequestDto customerRequestDto){
         return ResponseEntity.status(HttpStatus.OK).body(customerService.updateCustomerInfo(idNum, customerRequestDto));
     }
 
+    @Operation(summary = "Customers by id number have been deleted.")
     @DeleteMapping("{idNum}")
-    @Operation(summary = "All customers are listed.")
     public ResponseEntity<String> deleteCustomer (@PathVariable String idNum ){
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(customerService.deleteCustomerByIdNum(idNum));
     }

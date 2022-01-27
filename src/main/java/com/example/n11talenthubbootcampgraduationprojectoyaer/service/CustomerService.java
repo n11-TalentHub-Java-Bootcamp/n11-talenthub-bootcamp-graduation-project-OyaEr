@@ -6,7 +6,6 @@ import com.example.n11talenthubbootcampgraduationprojectoyaer.dao.CustomerDao;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.dao.CreditApplicationInfoDao;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.dto.CustomerDto;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.dto.CustomerRequestDto;
-import com.example.n11talenthubbootcampgraduationprojectoyaer.dto.CustomerResponseDto;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.Customer;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.CreditApplicationInfo;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.exception.ApprovedApplicationException;
@@ -39,7 +38,9 @@ public class CustomerService {
     private CreditApplicationInfoDao infoDao;
 
 
+
     private CreditApplication creditApplication;
+
 
 
     public CustomerDto saveCustomers(CustomerDto customerDto) {
