@@ -9,10 +9,7 @@ import com.example.n11talenthubbootcampgraduationprojectoyaer.dto.CustomerReques
 import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.Customer;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.CreditApplicationInfo;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.enums.CreditStatusType;
-import com.example.n11talenthubbootcampgraduationprojectoyaer.exception.ApprovedApplicationException;
-import com.example.n11talenthubbootcampgraduationprojectoyaer.exception.CustomerDoesNotExistException;
-import com.example.n11talenthubbootcampgraduationprojectoyaer.exception.IDNumberDoesNotExistException;
-import com.example.n11talenthubbootcampgraduationprojectoyaer.exception.SameIdNumberException;
+import com.example.n11talenthubbootcampgraduationprojectoyaer.exception.*;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.util.CreditScore;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,11 +49,15 @@ public class CustomerService {
         Customer customer = CustomerConverter.INSTANCE.convertAllCustomerDtoListToCustomerList(customerDto);
 
         boolean isCustomerExist= isCustomerExist(customer.getIdNum());
+        boolean isPhoneNumberExist = isPhoneNumberExist(customer.getPhoneNum());
 
         if(isCustomerExist){
             throw  new SameIdNumberException("This customer ID Number " + customer.getIdNum() + " already exists.");
         }
-        else{
+        if(isPhoneNumberExist){
+            throw new SamePhoneNumberException("This customer phone number " + customer.getPhoneNum()+ " already exists.");
+        }
+        if(isPhoneNumberValid(customer.getPhoneNum())){
             customer.setCreditScore(creditScore.calculateCreditScore(customer));
             customerDao.save(customer);
             CreditApplicationInfo creditInfo = creditApprove(customer.getCreditScore(), customer.getIncome(), customer.getAssurance(), customer);
@@ -66,7 +67,9 @@ public class CustomerService {
 
             return customerDto;
         }
-
+        else{
+            throw new PhoneNumberNotValidException("Phone number is not valid.Try again..");
+        }
     }
 
     private CreditApplicationInfo creditApprove(int creditScore, BigDecimal income, BigDecimal assurance, Customer customer){
@@ -93,29 +96,37 @@ public class CustomerService {
     public CustomerDto updateCustomerInfo(String idNum, CustomerRequestDto customerRequestDto) {
 
         boolean isCustomerExist= isCustomerExist(idNum);
+        boolean isPhoneNumberExist = isPhoneNumberExist(customerRequestDto.getPhoneNum());
         Customer customer = customerDao.findByIdNum(idNum);
         Long customerId= customer.getId();
+        String phoneNumber= customerRequestDto.getPhoneNum();
         List<CreditApplicationInfo> customerApproveList = infoDao.findByCustomerId(customerId);
 
         if(isCustomerExist){
+            if(isPhoneNumberExist){
+                throw new SamePhoneNumberException("This customer phone number " + customer.getPhoneNum()+ " already exists.");
+            }
+            if(isPhoneNumberValid(phoneNumber)){
+                customer.setAssurance(customerRequestDto.getAssurance());
+                customer.setIncome(customerRequestDto.getIncome());
+                customer.setPhoneNum(customerRequestDto.getPhoneNum());
+                customer.setCreditScore(creditScore.calculateCreditScore(customer));
 
-            customer.setAssurance(customerRequestDto.getAssurance());
-            customer.setIncome(customerRequestDto.getIncome());
-            customer.setPhoneNum(customerRequestDto.getPhoneNum());
-            customer.setCreditScore(creditScore.calculateCreditScore(customer));
-
-            for (CreditApplicationInfo infoEntity : customerApproveList) {
-                if(infoEntity.getCreditStatus().equals(CreditStatusType.ONAY.getCreditStatus())){
-                    throw new ApprovedApplicationException("There is an approved application.Can not apply.");
+                for (CreditApplicationInfo infoEntity : customerApproveList) {
+                    if(infoEntity.getCreditStatus().equals(CreditStatusType.ONAY.getCreditStatus())){
+                        throw new ApprovedApplicationException("There is an approved application.Can not apply.");
+                    }
                 }
+
+                CreditApplicationInfo creditInfo =creditApprove(customer.getCreditScore(), customer.getIncome(), customer.getAssurance(), customer);
+                infoDao.save(creditInfo);
+                infoService.sendSms(customer,creditInfo);
+
+                CustomerDto customerDto = CustomerConverter.INSTANCE.convertAllCustomerListToCustomerDtoList(customer);
+                return customerDto;
             }
 
-            CreditApplicationInfo creditInfo =creditApprove(customer.getCreditScore(), customer.getIncome(), customer.getAssurance(), customer);
-            infoDao.save(creditInfo);
-            infoService.sendSms(customer,creditInfo);
-
-            CustomerDto customerDto = CustomerConverter.INSTANCE.convertAllCustomerListToCustomerDtoList(customer);
-            return customerDto;
+            throw new PhoneNumberNotValidException("Phone number is not valid.Try again..");
         }
         else{
             throw  new IDNumberDoesNotExistException("This customer ID Number " + idNum + "not found");
@@ -139,6 +150,26 @@ public class CustomerService {
     private boolean isCustomerExist(String idNum){
 
         Customer customer = customerDao.findByIdNum(idNum);
+
+        if(customer !=null){
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isPhoneNumberValid(String phoneNumber){
+
+        String firstLetter= phoneNumber.substring(0,1);
+        String secondLetter= phoneNumber.substring(1,2);
+
+        if(firstLetter.equals("0") && secondLetter.equals("5")){
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isPhoneNumberExist(String phoneNumber){
+        Customer customer = customerDao.findByPhoneNum(phoneNumber);
 
         if(customer !=null){
             return true;

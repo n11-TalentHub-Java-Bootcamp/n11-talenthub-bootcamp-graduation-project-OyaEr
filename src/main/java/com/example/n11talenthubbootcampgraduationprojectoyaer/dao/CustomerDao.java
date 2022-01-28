@@ -9,5 +9,7 @@ public interface CustomerDao extends JpaRepository <Customer,Long> {
 
     Customer findByIdNum(String idNum);
 
+    Customer findByPhoneNum(String phoneNumber);
+
     void deleteByIdNum(String idNum);
 }

@@ -46,6 +46,16 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
         return getErrorResponse(ex, webRequest, HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler
+    public final ResponseEntity<Object> handleSamePhoneNumberException (SamePhoneNumberException ex,WebRequest webRequest){
+        return getErrorResponse(ex, webRequest, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler
+    public final ResponseEntity<Object> handlePhoneNumberNotValidException (PhoneNumberNotValidException ex,WebRequest webRequest){
+        return getErrorResponse(ex, webRequest, HttpStatus.BAD_REQUEST);
+    }
+
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
 
