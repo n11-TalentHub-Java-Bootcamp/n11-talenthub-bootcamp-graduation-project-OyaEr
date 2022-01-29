@@ -51,27 +51,20 @@ public class CreditApplicationInfoService {
         Date birth= customer.getBirthDate();
         LocalDate localDate = LocalDate.parse( new SimpleDateFormat("yyyy-MM-dd").format(birth) );
 
+        validateService.validateIdNumAndBirthDateMatch(localDate,birthDate);
 
-        if(localDate.isEqual(birthDate)){
+        List<CreditApplicationInfo> creditApplicationInfoList = infoDao.findByCustomerId(customer.getId());
 
-            List<CreditApplicationInfo> creditApplicationInfoList = infoDao.findByCustomerId(customer.getId());
+        List<CreditStatusResponseDto> responseDto = CreditApplicationInfoConverter.INSTANCE.convertAllCreditApplicationInfoListToCreditStatusResponseDtoList(creditApplicationInfoList);
 
-            List<CreditStatusResponseDto> responseDto = CreditApplicationInfoConverter.INSTANCE.convertAllCreditApplicationInfoListToCreditStatusResponseDtoList(creditApplicationInfoList);
+        for (CreditApplicationInfo infoEntity : creditApplicationInfoList) {
 
-            for (CreditApplicationInfo infoEntity : creditApplicationInfoList) {
-
-                if(infoEntity.getCreditStatus().equals(CreditStatusType.ONAY.getCreditStatus())){
-                    return responseDto;
-                }
-
+            if(infoEntity.getCreditStatus().equals(CreditStatusType.ONAY.getCreditStatus())){
+                return responseDto;
             }
-            return responseDto;
-        }
-        else {
-            log.error("Customer ID Number and birthdate not matched.");
-            throw new IDNumberAndBirthDateNotMatchException(Exceptions.IDNumberAndBirthDateNotMatchException.getMessage());
-        }
 
+        }
+        return responseDto;
     }
 
     public void sendSms(Customer customer, CreditApplicationInfo info) {

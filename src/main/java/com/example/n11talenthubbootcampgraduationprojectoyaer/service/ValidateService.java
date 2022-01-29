@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -64,6 +65,14 @@ public class ValidateService {
                 log.error("Have approved credit. Application cannot be made.");
                 throw new ApprovedApplicationException(Exceptions.ApprovedApplicationException.getMessage());
             }
+        }
+    }
+
+    public void validateIdNumAndBirthDateMatch(LocalDate customerBirthDate, LocalDate providedBirthDate){
+
+        if(!customerBirthDate.isEqual(providedBirthDate)){
+            log.error("Customer ID Number and birthdate not matched.");
+            throw new IDNumberAndBirthDateNotMatchException(Exceptions.IDNumberAndBirthDateNotMatchException.getMessage());
         }
     }
 }
