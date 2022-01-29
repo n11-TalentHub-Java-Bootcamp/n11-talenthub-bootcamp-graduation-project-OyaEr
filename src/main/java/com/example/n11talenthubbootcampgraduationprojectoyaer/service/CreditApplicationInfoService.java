@@ -1,11 +1,15 @@
 package com.example.n11talenthubbootcampgraduationprojectoyaer.service;
 
+import com.example.n11talenthubbootcampgraduationprojectoyaer.converter.CreditApplicationInfoConverter;
+import com.example.n11talenthubbootcampgraduationprojectoyaer.converter.CustomerConverter;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.dao.CustomerDao;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.dao.CreditApplicationInfoDao;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.dto.CreditStatusDto;
+import com.example.n11talenthubbootcampgraduationprojectoyaer.dto.CreditStatusResponseDto;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.Customer;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.CreditApplicationInfo;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.enums.CreditStatusType;
+import com.example.n11talenthubbootcampgraduationprojectoyaer.enums.Exceptions;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.exception.IDNumberAndBirthDateNotMatchException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +34,7 @@ public class CreditApplicationInfoService {
     private CreditApplicationInfoDao infoDao;
 
 
-    public String getCreditStatus(CreditStatusDto creditStatusDto) {
+    public CreditStatusResponseDto getCreditStatus(CreditStatusDto creditStatusDto) {
 
         String idNum= creditStatusDto.getIdNum();
         LocalDate birthDate= creditStatusDto.getBirthDate();
@@ -45,18 +49,21 @@ public class CreditApplicationInfoService {
 
             List<CreditApplicationInfo> infoCustomer = infoDao.findByCustomerId(customer.getId());
 
+            CreditStatusResponseDto responseDto = CreditApplicationInfoConverter.INSTANCE.convertAllCreditApplicationInfoListToCreditStatusResponseDtoList(infoCustomer.get(0));
+
             for (CreditApplicationInfo infoEntity : infoCustomer) {
 
                 if(infoEntity.getCreditStatus().equals(CreditStatusType.ONAY.getCreditStatus())){
 
-                    return "Kredi Sonucu:" + infoEntity.getCreditStatus() +  "\r" +"Kredi Limiti:" + infoEntity.getCreditLimit();
+                    //return "Kredi Sonucu:" + infoEntity.getCreditStatus() +  "\r" +"Kredi Limiti:" + infoEntity.getCreditLimit();
+                    return responseDto;
                 }
 
             }
-            return "Kredi Sonucu: RED";
+            return responseDto;
         }
         else {
-            throw new IDNumberAndBirthDateNotMatchException("ID number and date of birth did not match.");
+            throw new IDNumberAndBirthDateNotMatchException(Exceptions.IDNumberAndBirthDateNotMatchException.getMessage());
         }
 
     }

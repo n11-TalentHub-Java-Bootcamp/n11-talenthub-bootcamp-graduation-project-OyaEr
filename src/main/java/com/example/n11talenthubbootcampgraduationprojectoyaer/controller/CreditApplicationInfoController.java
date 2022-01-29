@@ -1,6 +1,7 @@
 package com.example.n11talenthubbootcampgraduationprojectoyaer.controller;
 
 import com.example.n11talenthubbootcampgraduationprojectoyaer.dto.CreditStatusDto;
+import com.example.n11talenthubbootcampgraduationprojectoyaer.dto.CreditStatusResponseDto;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.service.CreditApplicationInfoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -20,7 +21,7 @@ public class CreditApplicationInfoController {
 
     @Operation(summary = "We bring the result of the credit application.")
     @PostMapping("")
-     public ResponseEntity<String> getCreditApproval (@RequestBody CreditStatusDto creditStatusDto){
+     public ResponseEntity<CreditStatusResponseDto> getCreditApproval (@RequestBody CreditStatusDto creditStatusDto){
         return ResponseEntity.status(HttpStatus.OK).body(infoService.getCreditStatus(creditStatusDto));
     }
 }

@@ -1,122 +1,82 @@
-"2022-01-28 01:04:15 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Starting N11TalenthubBootcampGraduationProjectOyaErApplication using Java 11.0.12 on DESKTOP-DSFH67A with PID 4784 (C:\DEV\n11Bootcamp\n11-talenthub-bootcamp-graduation-project-OyaEr\target\classes started by oyaer in C:\DEV\n11Bootcamp\n11-talenthub-bootcamp-graduation-project-OyaEr)
-""2022-01-28 01:04:15 [restartedMain] DEBUG c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Running with Spring Boot v2.6.3, Spring v5.3.15
-""2022-01-28 01:04:15 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - No active profile set, falling back to default profiles: default
-""2022-01-28 01:04:18 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-""2022-01-28 01:04:18 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
-""2022-01-28 01:04:19 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-""2022-01-28 01:04:19 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-""2022-01-28 01:04:19 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.4.Final
-""2022-01-28 01:04:20 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-""2022-01-28 01:04:20 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-""2022-01-28 01:04:20 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-""2022-01-28 01:04:20 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-""2022-01-28 01:04:21 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-""2022-01-28 01:04:23 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Started N11TalenthubBootcampGraduationProjectOyaErApplication in 9.242 seconds (JVM running for 12.933)
-""2022-01-28 01:04:55 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-""2022-01-28 01:05:03 [http-nio-8080-exec-3] INFO  c.e.n.s.CreditApplicationInfoService - Kredi Sonucu: ONAYKredi Limit: 5422351017 numaralı kullanıcıya gönderildi.
-""2022-01-28 01:05:30 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-""2022-01-28 01:05:30 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-""2022-01-28 01:06:38 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Starting N11TalenthubBootcampGraduationProjectOyaErApplication using Java 11.0.12 on DESKTOP-DSFH67A with PID 4236 (C:\DEV\n11Bootcamp\n11-talenthub-bootcamp-graduation-project-OyaEr\target\classes started by oyaer in C:\DEV\n11Bootcamp\n11-talenthub-bootcamp-graduation-project-OyaEr)
-""2022-01-28 01:06:38 [restartedMain] DEBUG c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Running with Spring Boot v2.6.3, Spring v5.3.15
-""2022-01-28 01:06:38 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - No active profile set, falling back to default profiles: default
-""2022-01-28 01:06:41 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-""2022-01-28 01:06:41 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
-""2022-01-28 01:06:41 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-""2022-01-28 01:06:41 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-""2022-01-28 01:06:41 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.4.Final
-""2022-01-28 01:06:41 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-""2022-01-28 01:06:41 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-""2022-01-28 01:06:42 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-""2022-01-28 01:06:42 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-""2022-01-28 01:06:42 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-""2022-01-28 01:06:44 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Started N11TalenthubBootcampGraduationProjectOyaErApplication in 7.043 seconds (JVM running for 9.347)
-""2022-01-28 01:06:52 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-""2022-01-28 01:06:52 [http-nio-8080-exec-2] INFO  c.e.n.s.CreditApplicationInfoService - Kredi Sonucu: ONAYKredi Limit: 160000 5422351017 numaralı kullanıcıya gönderildi.
-""2022-01-28 01:07:16 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-""2022-01-28 01:07:16 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-""2022-01-28 01:07:26 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Starting N11TalenthubBootcampGraduationProjectOyaErApplication using Java 11.0.12 on DESKTOP-DSFH67A with PID 4240 (C:\DEV\n11Bootcamp\n11-talenthub-bootcamp-graduation-project-OyaEr\target\classes started by oyaer in C:\DEV\n11Bootcamp\n11-talenthub-bootcamp-graduation-project-OyaEr)
-""2022-01-28 01:07:26 [restartedMain] DEBUG c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Running with Spring Boot v2.6.3, Spring v5.3.15
-""2022-01-28 01:07:26 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - No active profile set, falling back to default profiles: default
-""2022-01-28 01:07:27 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-""2022-01-28 01:07:27 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
-""2022-01-28 01:07:28 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-""2022-01-28 01:07:28 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-""2022-01-28 01:07:28 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.4.Final
-""2022-01-28 01:07:28 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-""2022-01-28 01:07:28 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-""2022-01-28 01:07:28 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-""2022-01-28 01:07:28 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-""2022-01-28 01:07:29 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-""2022-01-28 01:07:31 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Started N11TalenthubBootcampGraduationProjectOyaErApplication in 6.048 seconds (JVM running for 8.115)
-""2022-01-28 01:07:36 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-""2022-01-28 01:07:36 [http-nio-8080-exec-1] INFO  c.e.n.s.CreditApplicationInfoService - Kredi Sonucu: ONAY Kredi Limit: 160000 5422351017 numaralı kullanıcıya gönderildi.
-""2022-01-28 01:17:03 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-""2022-01-28 01:17:03 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-""2022-01-28 01:17:13 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Starting N11TalenthubBootcampGraduationProjectOyaErApplication using Java 11.0.12 on DESKTOP-DSFH67A with PID 4544 (C:\DEV\n11Bootcamp\n11-talenthub-bootcamp-graduation-project-OyaEr\target\classes started by oyaer in C:\DEV\n11Bootcamp\n11-talenthub-bootcamp-graduation-project-OyaEr)
-""2022-01-28 01:17:13 [restartedMain] DEBUG c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Running with Spring Boot v2.6.3, Spring v5.3.15
-""2022-01-28 01:17:13 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - No active profile set, falling back to default profiles: default
-""2022-01-28 01:17:15 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-""2022-01-28 01:17:15 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
-""2022-01-28 01:17:15 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-""2022-01-28 01:17:15 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-""2022-01-28 01:17:15 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.4.Final
-""2022-01-28 01:17:16 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-""2022-01-28 01:17:16 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-""2022-01-28 01:17:16 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-""2022-01-28 01:17:16 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-""2022-01-28 01:17:17 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-""2022-01-28 01:17:18 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Started N11TalenthubBootcampGraduationProjectOyaErApplication in 6.702 seconds (JVM running for 9.03)
-""2022-01-28 01:17:28 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-""2022-01-28 01:17:28 [http-nio-8080-exec-2] INFO  c.e.n.s.CreditApplicationInfoService - Kredi Sonucu: RED Kredi Limit: 0 5422351017 numaralı kullanıcıya gönderildi.
-""2022-01-28 01:45:31 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-""2022-01-28 01:45:31 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-""2022-01-28 03:12:55 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Starting N11TalenthubBootcampGraduationProjectOyaErApplication using Java 11.0.12 on DESKTOP-DSFH67A with PID 16516 (C:\DEV\n11Bootcamp\n11-talenthub-bootcamp-graduation-project-OyaEr\target\classes started by oyaer in C:\DEV\n11Bootcamp\n11-talenthub-bootcamp-graduation-project-OyaEr)
-""2022-01-28 03:12:55 [restartedMain] DEBUG c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Running with Spring Boot v2.6.3, Spring v5.3.15
-""2022-01-28 03:12:55 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - No active profile set, falling back to default profiles: default
-""2022-01-28 03:12:57 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-""2022-01-28 03:12:57 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
-""2022-01-28 03:12:57 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-""2022-01-28 03:12:57 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-""2022-01-28 03:12:57 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.4.Final
-""2022-01-28 03:12:58 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-""2022-01-28 03:12:58 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-""2022-01-28 03:12:58 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-""2022-01-28 03:12:58 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-""2022-01-28 03:12:59 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-""2022-01-28 03:13:01 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Started N11TalenthubBootcampGraduationProjectOyaErApplication in 7.627 seconds (JVM running for 11.323)
-""2022-01-28 03:14:58 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-""2022-01-28 03:14:59 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-""2022-01-28 03:15:10 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Starting N11TalenthubBootcampGraduationProjectOyaErApplication using Java 11.0.12 on DESKTOP-DSFH67A with PID 10704 (C:\DEV\n11Bootcamp\n11-talenthub-bootcamp-graduation-project-OyaEr\target\classes started by oyaer in C:\DEV\n11Bootcamp\n11-talenthub-bootcamp-graduation-project-OyaEr)
-""2022-01-28 03:15:10 [restartedMain] DEBUG c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Running with Spring Boot v2.6.3, Spring v5.3.15
-""2022-01-28 03:15:10 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - No active profile set, falling back to default profiles: default
-""2022-01-28 03:15:12 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-""2022-01-28 03:15:12 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
-""2022-01-28 03:15:12 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-""2022-01-28 03:15:12 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-""2022-01-28 03:15:12 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.4.Final
-""2022-01-28 03:15:13 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-""2022-01-28 03:15:13 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-""2022-01-28 03:15:13 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-""2022-01-28 03:15:13 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-""2022-01-28 03:15:14 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-""2022-01-28 03:15:16 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Started N11TalenthubBootcampGraduationProjectOyaErApplication in 6.8 seconds (JVM running for 8.992)
-""2022-01-28 03:15:39 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-""2022-01-28 03:15:39 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-""2022-01-28 03:15:46 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Starting N11TalenthubBootcampGraduationProjectOyaErApplication using Java 11.0.12 on DESKTOP-DSFH67A with PID 2876 (C:\DEV\n11Bootcamp\n11-talenthub-bootcamp-graduation-project-OyaEr\target\classes started by oyaer in C:\DEV\n11Bootcamp\n11-talenthub-bootcamp-graduation-project-OyaEr)
-""2022-01-28 03:15:46 [restartedMain] DEBUG c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Running with Spring Boot v2.6.3, Spring v5.3.15
-""2022-01-28 03:15:46 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - No active profile set, falling back to default profiles: default
-""2022-01-28 03:15:49 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-""2022-01-28 03:15:49 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
-""2022-01-28 03:15:49 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-""2022-01-28 03:15:49 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-""2022-01-28 03:15:49 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.4.Final
-""2022-01-28 03:15:50 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-""2022-01-28 03:15:50 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-""2022-01-28 03:15:50 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-""2022-01-28 03:15:50 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-""2022-01-28 03:15:51 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-""2022-01-28 03:15:53 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Started N11TalenthubBootcampGraduationProjectOyaErApplication in 8.001 seconds (JVM running for 9.838)
-""2022-01-28 03:16:27 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-""2022-01-28 03:16:27 [http-nio-8080-exec-2] INFO  c.e.n.s.CreditApplicationInfoService - Kredi Sonucu: RED Kredi Limit: 0 05422351017 numaralı kullanıcıya gönderildi.
-""2022-01-28 03:17:25 [http-nio-8080-exec-9] INFO  c.e.n.s.CreditApplicationInfoService - Kredi Sonucu: RED Kredi Limit: 0 05422351018 numaralı kullanıcıya gönderildi.
+"2022-01-29 00:10:49 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Starting N11TalenthubBootcampGraduationProjectOyaErApplication using Java 11.0.12 on DESKTOP-DSFH67A with PID 8928 (C:\DEV\n11Bootcamp\n11-talenthub-bootcamp-graduation-project-OyaEr\target\classes started by oyaer in C:\DEV\n11Bootcamp\n11-talenthub-bootcamp-graduation-project-OyaEr)
+""2022-01-29 00:10:49 [restartedMain] DEBUG c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Running with Spring Boot v2.6.3, Spring v5.3.15
+""2022-01-29 00:10:49 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - No active profile set, falling back to default profiles: default
+""2022-01-29 00:10:53 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2022-01-29 00:10:53 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+""2022-01-29 00:10:53 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2022-01-29 00:10:53 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2022-01-29 00:10:53 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.4.Final
+""2022-01-29 00:10:53 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2022-01-29 00:10:54 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+""2022-01-29 00:10:54 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+""2022-01-29 00:10:54 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+""2022-01-29 00:10:56 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2022-01-29 00:10:59 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Started N11TalenthubBootcampGraduationProjectOyaErApplication in 16.293 seconds (JVM running for 20.271)
+""2022-01-29 00:11:49 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+""2022-01-29 00:11:58 [http-nio-8080-exec-4] INFO  c.e.n.s.CreditApplicationInfoService - Kredi Sonucu: ONAY Kredi Limit: 205000 05422351090 numaralı kullanıcıya gönderildi.
+""2022-01-29 00:53:36 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m10s947ms956µs200ns).
+""2022-01-29 00:54:27 [http-nio-8080-exec-7] INFO  c.e.n.s.CreditApplicationInfoService - Kredi Sonucu: ONAY Kredi Limit: 20000 05422351091 numaralı kullanıcıya gönderildi.
+""2022-01-29 00:58:29 [http-nio-8080-exec-10] INFO  c.e.n.s.CreditApplicationInfoService - Kredi Sonucu: ONAY Kredi Limit: 10000 05422451091 numaralı kullanıcıya gönderildi.
+""2022-01-29 00:58:54 [http-nio-8080-exec-2] INFO  c.e.n.s.CreditApplicationInfoService - Kredi Sonucu: ONAY Kredi Limit: 10189 05442451091 numaralı kullanıcıya gönderildi.
+""2022-01-29 01:03:28 [http-nio-8080-exec-4] INFO  c.e.n.s.CreditApplicationInfoService - Kredi Sonucu: ONAY Kredi Limit: 21000 05432451091 numaralı kullanıcıya gönderildi.
+""2022-01-29 01:04:13 [http-nio-8080-exec-7] INFO  c.e.n.s.CreditApplicationInfoService - Kredi Sonucu: ONAY Kredi Limit: 20200 05432451791 numaralı kullanıcıya gönderildi.
+""2022-01-29 01:05:33 [http-nio-8080-exec-9] INFO  c.e.n.s.CreditApplicationInfoService - Kredi Sonucu: ONAY Kredi Limit: 24075 05632451791 numaralı kullanıcıya gönderildi.
+""2022-01-29 01:07:34 [http-nio-8080-exec-3] ERROR c.e.n.service.CustomerService - This customer ID Number 21252252423 already exists.
+""2022-01-29 01:07:43 [http-nio-8080-exec-5] INFO  c.e.n.s.CreditApplicationInfoService - Kredi Sonucu: ONAY Kredi Limit: 166280 05332491791 numaralı kullanıcıya gönderildi.
+""2022-01-29 02:24:13 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+""2022-01-29 02:24:13 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+""2022-01-29 02:24:48 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Starting N11TalenthubBootcampGraduationProjectOyaErApplication using Java 11.0.12 on DESKTOP-DSFH67A with PID 16776 (C:\DEV\n11Bootcamp\n11-talenthub-bootcamp-graduation-project-OyaEr\target\classes started by oyaer in C:\DEV\n11Bootcamp\n11-talenthub-bootcamp-graduation-project-OyaEr)
+""2022-01-29 02:24:48 [restartedMain] DEBUG c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Running with Spring Boot v2.6.3, Spring v5.3.15
+""2022-01-29 02:24:48 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - No active profile set, falling back to default profiles: default
+""2022-01-29 02:24:51 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2022-01-29 02:24:51 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+""2022-01-29 02:24:51 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2022-01-29 02:24:51 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2022-01-29 02:24:51 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.4.Final
+""2022-01-29 02:24:52 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2022-01-29 02:24:52 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+""2022-01-29 02:24:52 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+""2022-01-29 02:24:52 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+""2022-01-29 02:24:53 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2022-01-29 02:24:55 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Started N11TalenthubBootcampGraduationProjectOyaErApplication in 7.58 seconds (JVM running for 14.187)
+""2022-01-29 02:36:32 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+""2022-01-29 02:36:33 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+""2022-01-29 02:37:01 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Starting N11TalenthubBootcampGraduationProjectOyaErApplication using Java 11.0.12 on DESKTOP-DSFH67A with PID 15864 (C:\DEV\n11Bootcamp\n11-talenthub-bootcamp-graduation-project-OyaEr\target\classes started by oyaer in C:\DEV\n11Bootcamp\n11-talenthub-bootcamp-graduation-project-OyaEr)
+""2022-01-29 02:37:01 [restartedMain] DEBUG c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Running with Spring Boot v2.6.3, Spring v5.3.15
+""2022-01-29 02:37:01 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - No active profile set, falling back to default profiles: default
+""2022-01-29 02:37:04 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2022-01-29 02:37:04 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+""2022-01-29 02:37:05 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2022-01-29 02:37:05 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2022-01-29 02:37:05 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.4.Final
+""2022-01-29 02:37:05 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2022-01-29 02:37:05 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+""2022-01-29 02:37:06 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+""2022-01-29 02:37:06 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+""2022-01-29 02:37:07 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2022-01-29 02:37:08 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Started N11TalenthubBootcampGraduationProjectOyaErApplication in 8.45 seconds (JVM running for 12.072)
+""2022-01-29 02:37:39 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+""2022-01-29 03:22:16 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+""2022-01-29 03:22:16 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+""2022-01-29 03:22:27 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Starting N11TalenthubBootcampGraduationProjectOyaErApplication using Java 11.0.12 on DESKTOP-DSFH67A with PID 10844 (C:\DEV\n11Bootcamp\n11-talenthub-bootcamp-graduation-project-OyaEr\target\classes started by oyaer in C:\DEV\n11Bootcamp\n11-talenthub-bootcamp-graduation-project-OyaEr)
+""2022-01-29 03:22:27 [restartedMain] DEBUG c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Running with Spring Boot v2.6.3, Spring v5.3.15
+""2022-01-29 03:22:27 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - No active profile set, falling back to default profiles: default
+""2022-01-29 03:22:29 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2022-01-29 03:22:29 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+""2022-01-29 03:22:29 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2022-01-29 03:22:29 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2022-01-29 03:22:29 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.4.Final
+""2022-01-29 03:22:30 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2022-01-29 03:22:30 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+""2022-01-29 03:22:30 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+""2022-01-29 03:22:30 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+""2022-01-29 03:22:31 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2022-01-29 03:22:32 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Started N11TalenthubBootcampGraduationProjectOyaErApplication in 6.05 seconds (JVM running for 8.97)
+""2022-01-29 03:22:42 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+""2022-01-29 03:22:42 [http-nio-8080-exec-2] INFO  c.e.n.controller.CustomerController - Sisteme kullanıcı kayıt ve başvuru yapma isteği geldi.
+""2022-01-29 03:22:43 [http-nio-8080-exec-2] ERROR c.e.n.service.CustomerService - This customer ID Number 21252052423 already exists.
+""2022-01-29 03:23:32 [http-nio-8080-exec-4] INFO  c.e.n.controller.CustomerController - Sisteme kullanıcı kayıt ve başvuru yapma isteği geldi.
+""2022-01-29 03:23:54 [http-nio-8080-exec-6] INFO  c.e.n.controller.CustomerController - Sisteme kullanıcı kayıt ve başvuru yapma isteği geldi.
+""2022-01-29 03:24:46 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+""2022-01-29 03:24:46 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
 "

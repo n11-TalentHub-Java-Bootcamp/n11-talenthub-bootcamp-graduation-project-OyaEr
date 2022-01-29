@@ -2,7 +2,6 @@ package com.example.n11talenthubbootcampgraduationprojectoyaer.converter;
 
 import com.example.n11talenthubbootcampgraduationprojectoyaer.dto.CustomerDto;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.dto.CustomerRequestDto;
-import com.example.n11talenthubbootcampgraduationprojectoyaer.dto.CustomerResponseDto;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.dto.CreditStatusDto;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.Customer;
 import org.mapstruct.Mapper;
@@ -21,10 +20,6 @@ public interface CustomerConverter {
     Customer convertAllCustomerDtoListToCustomerList(CustomerDto customerDto);
 
     CustomerDto convertAllCustomerListToCustomerDtoList (Customer customer);
-
-    List<CustomerResponseDto> convertAllCustomerListToCustomerResponseDtoList (List<Customer> customerList);
-
-    Customer convertAllCustomerResponseDtoListToCustomerList(CustomerResponseDto customerResponseDto);
 
     List<CustomerRequestDto> convertAllCustomerListToCustomerRequestDtoList (List<Customer> customerList);
 

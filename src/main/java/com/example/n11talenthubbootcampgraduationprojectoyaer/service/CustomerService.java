@@ -9,6 +9,7 @@ import com.example.n11talenthubbootcampgraduationprojectoyaer.dto.CustomerReques
 import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.Customer;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.CreditApplicationInfo;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.enums.CreditStatusType;
+import com.example.n11talenthubbootcampgraduationprojectoyaer.enums.Exceptions;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.exception.*;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.util.CreditScore;
 import lombok.extern.slf4j.Slf4j;
@@ -52,10 +53,13 @@ public class CustomerService {
         boolean isPhoneNumberExist = isPhoneNumberExist(customer.getPhoneNum());
 
         if(isCustomerExist){
-            throw  new SameIdNumberException("This customer ID Number " + customer.getIdNum() + " already exists.");
+            log.error("This customer ID Number " + customer.getIdNum() + " already exists.");
+            throw  new SameIdNumberException(Exceptions.SameIdNumberException.getMessage());
+            //"This customer ID Number " + customer.getIdNum() + " already exists."
         }
         if(isPhoneNumberExist){
-            throw new SamePhoneNumberException("This customer phone number " + customer.getPhoneNum()+ " already exists.");
+            throw new SamePhoneNumberException(Exceptions.SamePhoneNumberException.getMessage());
+            //"This customer phone number " + customer.getPhoneNum()+ " already exists."
         }
         if(isPhoneNumberValid(customer.getPhoneNum())){
             customer.setCreditScore(creditScore.calculateCreditScore(customer));
@@ -68,7 +72,7 @@ public class CustomerService {
             return customerDto;
         }
         else{
-            throw new PhoneNumberNotValidException("Phone number is not valid.Try again..");
+            throw new PhoneNumberNotValidException(Exceptions.PhoneNumberNotValidException.getMessage());
         }
     }
 
@@ -104,7 +108,7 @@ public class CustomerService {
 
         if(isCustomerExist){
             if(isPhoneNumberExist){
-                throw new SamePhoneNumberException("This customer phone number " + customer.getPhoneNum()+ " already exists.");
+                throw new SamePhoneNumberException(Exceptions.SamePhoneNumberException.getMessage());
             }
             if(isPhoneNumberValid(phoneNumber)){
                 customer.setAssurance(customerRequestDto.getAssurance());
@@ -114,7 +118,7 @@ public class CustomerService {
 
                 for (CreditApplicationInfo infoEntity : customerApproveList) {
                     if(infoEntity.getCreditStatus().equals(CreditStatusType.ONAY.getCreditStatus())){
-                        throw new ApprovedApplicationException("There is an approved application.Can not apply.");
+                        throw new ApprovedApplicationException(Exceptions.ApprovedApplicationException.getMessage());
                     }
                 }
 
@@ -126,10 +130,10 @@ public class CustomerService {
                 return customerDto;
             }
 
-            throw new PhoneNumberNotValidException("Phone number is not valid.Try again..");
+            throw new PhoneNumberNotValidException(Exceptions.PhoneNumberNotValidException.getMessage());
         }
         else{
-            throw  new IDNumberDoesNotExistException("This customer ID Number " + idNum + "not found");
+            throw  new IDNumberDoesNotExistException(Exceptions.IDNumberDoesNotExistException.getMessage());
         }
     }
 
@@ -143,7 +147,7 @@ public class CustomerService {
             return "Delete successfully.";
         }
         else{
-            throw new CustomerDoesNotExistException("This customer not found.");
+            throw new CustomerDoesNotExistException(Exceptions.CustomerDoesNotExistException.getMessage());
         }
     }
 

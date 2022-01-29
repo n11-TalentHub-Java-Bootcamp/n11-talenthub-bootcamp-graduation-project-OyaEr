@@ -5,14 +5,15 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CustomerResponseDto {
+public class CreditStatusResponseDto {
 
-    private String fullName;
-    private int creditScore;
+    private BigDecimal creditLimit;
+    private String creditStatus;
 
 }
