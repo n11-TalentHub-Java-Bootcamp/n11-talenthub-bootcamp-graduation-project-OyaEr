@@ -236,4 +236,81 @@
 ""2022-01-29 17:47:02 [http-nio-8080-exec-7] INFO  c.e.n.service.CustomerService - Customer deletion request received.
 ""2022-01-29 17:47:02 [http-nio-8080-exec-7] WARN  c.e.n.service.CustomerService - The client's applications were also deleted.
 ""2022-01-29 17:48:09 [http-nio-8080-exec-10] INFO  c.e.n.s.CreditApplicationInfoService - A request to view credit results has been received.
+""2022-01-29 18:20:23 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+""2022-01-29 18:20:23 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+""2022-01-29 20:27:30 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Starting N11TalenthubBootcampGraduationProjectOyaErApplication using Java 11.0.12 on DESKTOP-DSFH67A with PID 14180 (C:\DEV\n11Bootcamp\n11-talenthub-bootcamp-graduation-project-OyaEr\target\classes started by oyaer in C:\DEV\n11Bootcamp\n11-talenthub-bootcamp-graduation-project-OyaEr)
+""2022-01-29 20:27:30 [restartedMain] DEBUG c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Running with Spring Boot v2.6.3, Spring v5.3.15
+""2022-01-29 20:27:30 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - No active profile set, falling back to default profiles: default
+""2022-01-29 20:27:32 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2022-01-29 20:27:32 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+""2022-01-29 20:27:32 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2022-01-29 20:27:32 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2022-01-29 20:27:32 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.4.Final
+""2022-01-29 20:27:32 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2022-01-29 20:27:32 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+""2022-01-29 20:27:33 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+""2022-01-29 20:27:33 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+""2022-01-29 20:27:33 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2022-01-29 20:27:35 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Started N11TalenthubBootcampGraduationProjectOyaErApplication in 6.433 seconds (JVM running for 9.294)
+""2022-01-29 20:27:58 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+""2022-01-29 20:27:58 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+""2022-01-29 20:28:05 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Starting N11TalenthubBootcampGraduationProjectOyaErApplication using Java 11.0.12 on DESKTOP-DSFH67A with PID 14348 (C:\DEV\n11Bootcamp\n11-talenthub-bootcamp-graduation-project-OyaEr\target\classes started by oyaer in C:\DEV\n11Bootcamp\n11-talenthub-bootcamp-graduation-project-OyaEr)
+""2022-01-29 20:28:05 [restartedMain] DEBUG c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Running with Spring Boot v2.6.3, Spring v5.3.15
+""2022-01-29 20:28:05 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - No active profile set, falling back to default profiles: default
+""2022-01-29 20:28:07 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2022-01-29 20:28:07 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+""2022-01-29 20:28:07 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2022-01-29 20:28:08 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2022-01-29 20:28:08 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.4.Final
+""2022-01-29 20:28:08 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2022-01-29 20:28:08 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+""2022-01-29 20:28:08 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+""2022-01-29 20:28:08 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+""2022-01-29 20:28:09 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2022-01-29 20:28:11 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Started N11TalenthubBootcampGraduationProjectOyaErApplication in 6.547 seconds (JVM running for 9.382)
+""2022-01-29 20:28:23 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+""2022-01-29 20:28:23 [http-nio-8080-exec-2] INFO  c.e.n.service.CustomerService - Customer registration request received.
+""2022-01-29 20:28:23 [http-nio-8080-exec-2] INFO  c.e.n.util.CreditScore - Credit score assigned to 1000
+""2022-01-29 20:28:23 [http-nio-8080-exec-2] INFO  c.e.n.service.CustomerService - Customer saved.
+""2022-01-29 20:28:23 [http-nio-8080-exec-2] INFO  c.e.n.service.CustomerService - Redirected to the method of saving applications and sending sms.
+""2022-01-29 20:28:23 [http-nio-8080-exec-2] INFO  c.e.n.service.CustomerService - Credit limit strategies have been determined. The relevant method will be run.
+""2022-01-29 20:28:23 [http-nio-8080-exec-2] INFO  c.e.n.c.ConcreteCreditApplicationCase5 - Case-5 with assurance run.
+""2022-01-29 20:28:23 [http-nio-8080-exec-2] INFO  c.e.n.s.CreditApplicationInfoService - Kredi Durum: ONAY Kredi Limit: 146280, 0571918714 telefon numaralı müşteriye gönderildi.
+""2022-01-29 20:28:23 [http-nio-8080-exec-2] INFO  c.e.n.service.CustomerService - Customer credit application saved. The sms sending method has been called.
+""2022-01-29 20:28:55 [http-nio-8080-exec-3] INFO  c.e.n.service.CustomerService - Customer registration request received.
+""2022-01-29 20:28:55 [http-nio-8080-exec-3] ERROR c.e.n.service.ValidateService - This customer phone number 0571918714 already exists.
+""2022-01-29 20:29:06 [http-nio-8080-exec-5] INFO  c.e.n.service.CustomerService - Customer registration request received.
+""2022-01-29 20:29:06 [http-nio-8080-exec-5] INFO  c.e.n.util.CreditScore - Credit score assigned to 400
+""2022-01-29 20:29:06 [http-nio-8080-exec-5] INFO  c.e.n.service.CustomerService - Customer saved.
+""2022-01-29 20:29:06 [http-nio-8080-exec-5] INFO  c.e.n.service.CustomerService - Redirected to the method of saving applications and sending sms.
+""2022-01-29 20:29:06 [http-nio-8080-exec-5] INFO  c.e.n.service.CustomerService - Credit limit strategies have been determined. The relevant method will be run.
+""2022-01-29 20:29:06 [http-nio-8080-exec-5] INFO  c.e.n.c.ConcreteCreditApplicationCase1 - Credit score below 500,case-1 run.
+""2022-01-29 20:29:06 [http-nio-8080-exec-5] INFO  c.e.n.s.CreditApplicationInfoService - Kredi Durum: RED Kredi Limit: 0, 0571918715 telefon numaralı müşteriye gönderildi.
+""2022-01-29 20:29:06 [http-nio-8080-exec-5] INFO  c.e.n.service.CustomerService - Customer credit application saved. The sms sending method has been called.
+""2022-01-29 20:29:25 [http-nio-8080-exec-6] INFO  c.e.n.service.CustomerService - Customer update request received.
+""2022-01-29 20:29:25 [http-nio-8080-exec-6] INFO  c.e.n.util.CreditScore - Credit score assigned to 900
+""2022-01-29 20:29:25 [http-nio-8080-exec-6] INFO  c.e.n.service.CustomerService - Redirected to the method of saving applications and sending sms.
+""2022-01-29 20:29:25 [http-nio-8080-exec-6] INFO  c.e.n.service.CustomerService - Credit limit strategies have been determined. The relevant method will be run.
+""2022-01-29 20:29:25 [http-nio-8080-exec-6] INFO  c.e.n.c.ConcreteCreditApplicationCase3 - Case-3 with assurance run.
+""2022-01-29 20:29:25 [http-nio-8080-exec-6] INFO  c.e.n.s.CreditApplicationInfoService - Kredi Durum: ONAY Kredi Limit: 20020, 05452951018 telefon numaralı müşteriye gönderildi.
+""2022-01-29 20:29:25 [http-nio-8080-exec-6] INFO  c.e.n.service.CustomerService - Customer credit application saved. The sms sending method has been called.
+""2022-01-29 20:29:40 [http-nio-8080-exec-7] INFO  c.e.n.service.CustomerService - Customer deletion request received.
+""2022-01-29 20:29:40 [http-nio-8080-exec-7] WARN  c.e.n.service.CustomerService - The client's applications were also deleted.
+""2022-01-29 20:30:47 [http-nio-8080-exec-10] INFO  c.e.n.service.CustomerService - Customer registration request received.
+""2022-01-29 20:30:47 [http-nio-8080-exec-10] INFO  c.e.n.util.CreditScore - Credit score assigned to 400
+""2022-01-29 20:30:47 [http-nio-8080-exec-10] INFO  c.e.n.service.CustomerService - Customer saved.
+""2022-01-29 20:30:47 [http-nio-8080-exec-10] INFO  c.e.n.service.CustomerService - Redirected to the method of saving applications and sending sms.
+""2022-01-29 20:30:47 [http-nio-8080-exec-10] INFO  c.e.n.service.CustomerService - Credit limit strategies have been determined. The relevant method will be run.
+""2022-01-29 20:30:47 [http-nio-8080-exec-10] INFO  c.e.n.c.ConcreteCreditApplicationCase1 - Credit score below 500,case-1 run.
+""2022-01-29 20:30:47 [http-nio-8080-exec-10] INFO  c.e.n.s.CreditApplicationInfoService - Kredi Durum: RED Kredi Limit: 0, 0571818715 telefon numaralı müşteriye gönderildi.
+""2022-01-29 20:30:47 [http-nio-8080-exec-10] INFO  c.e.n.service.CustomerService - Customer credit application saved. The sms sending method has been called.
+""2022-01-29 20:30:57 [http-nio-8080-exec-1] INFO  c.e.n.s.CreditApplicationInfoService - A request to view credit results has been received.
+""2022-01-29 20:31:07 [http-nio-8080-exec-2] INFO  c.e.n.service.CustomerService - Customer registration request received.
+""2022-01-29 20:31:07 [http-nio-8080-exec-2] ERROR c.e.n.service.ValidateService - This customer ID Number 11811711455 already exists.
+""2022-01-29 20:31:18 [http-nio-8080-exec-3] INFO  c.e.n.service.CustomerService - Customer deletion request received.
+""2022-01-29 20:31:18 [http-nio-8080-exec-3] ERROR c.e.n.service.ValidateService - This customer ID number does not exist.
+""2022-01-29 20:31:28 [http-nio-8080-exec-5] INFO  c.e.n.service.CustomerService - Customer update request received.
+""2022-01-29 20:31:28 [http-nio-8080-exec-5] ERROR c.e.n.service.ValidateService - This customer ID number does not exist.
+""2022-01-29 20:31:37 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+""2022-01-29 20:31:37 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
 "

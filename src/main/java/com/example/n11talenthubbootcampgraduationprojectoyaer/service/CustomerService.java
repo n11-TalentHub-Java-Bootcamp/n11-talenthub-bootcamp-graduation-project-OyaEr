@@ -20,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -39,6 +40,8 @@ public class CustomerService {
     @Autowired
     private CreditApplicationInfoService infoService;
 
+    @Autowired
+    private ValidateService validateService;
 
     private CreditApplication creditApplication;
 
@@ -49,30 +52,22 @@ public class CustomerService {
         log.info("Customer registration request received.");
         Customer customer = CustomerConverter.INSTANCE.convertAllCustomerDtoListToCustomerList(customerDto);
 
-        boolean isCustomerExist= isCustomerExist(customer.getIdNum());
-        boolean isPhoneNumberExist = isPhoneNumberExist(customer.getPhoneNum());
+        Optional<Customer> optionalCustomer = customerDao.findByIdNum(customer.getIdNum());
+        validateService.validateNewCustomer(optionalCustomer);
 
-        if(isCustomerExist){
-            log.error("This customer ID Number " + customer.getIdNum() + " already exists.");
-            throw  new SameIdNumberException(Exceptions.SameIdNumberException.getMessage());
-        }
-        if(isPhoneNumberExist){
-            log.error("This customer phone number " + customer.getPhoneNum() + " already exists.");
-            throw new SamePhoneNumberException(Exceptions.SamePhoneNumberException.getMessage());
-        }
-        if(isPhoneNumberValid(customer.getPhoneNum())){
-            customer.setCreditScore(creditScore.calculateCreditScore(customer));
-            customerDao.save(customer);
-            log.info("Customer saved.");
+        Optional<Customer> customerOptional = customerDao.findByPhoneNum(customer.getPhoneNum());
+        validateService.validatePhoneNumber(customerOptional);
 
-            log.info("Redirected to the method of saving applications and sending sms.");
-            saveCreditApplicationAndInformCustomer(customer.getCreditScore(), customer.getIncome(), customer.getAssurance(), customer);
-            return customerDto;
-        }
-        else{
-            log.error("This customer phone number not valid.");
-            throw new PhoneNumberNotValidException(Exceptions.PhoneNumberNotValidException.getMessage());
-        }
+        validateService.isPhoneNumberValid(customer.getPhoneNum());
+
+        customer.setCreditScore(creditScore.calculateCreditScore(customer));
+        customerDao.save(customer);
+        log.info("Customer saved.");
+
+        log.info("Redirected to the method of saving applications and sending sms.");
+        saveCreditApplicationAndInformCustomer(customer.getCreditScore(), customer.getIncome(), customer.getAssurance(), customer);
+        return customerDto;
+
     }
 
     private CreditApplicationInfo creditApprove(int creditScore, BigDecimal income, BigDecimal assurance, Customer customer){
@@ -101,20 +96,20 @@ public class CustomerService {
 
         log.info("Customer update request received.");
 
-        boolean isCustomerExist= isCustomerExist(idNum);
-        boolean isPhoneNumberExist = isPhoneNumberExist(customerRequestDto.getPhoneNum());
-        Customer customer = customerDao.findByIdNum(idNum);
+
+        Optional<Customer> optionalCustomer = customerDao.findByIdNum(idNum);
+        Customer customer = validateService.validateExistingCustomer(optionalCustomer);
+
+        Optional<Customer> customerOptional = customerDao.findByPhoneNum(customerRequestDto.getPhoneNum());
+        validateService.validatePhoneNumber(customerOptional);
+
         Long customerId= customer.getId();
         String phoneNumber= customerRequestDto.getPhoneNum();
         List<CreditApplicationInfo> customerApproveList = infoDao.findByCustomerId(customerId);
 
-        if(isCustomerExist){
-            if(isPhoneNumberExist){
+            validateService.isPhoneNumberValid(customerRequestDto.getPhoneNum());
 
-                log.error("This customer phone number " + customer.getPhoneNum() + " already exists.");
-                throw new SamePhoneNumberException(Exceptions.SamePhoneNumberException.getMessage());
-            }
-            if(isPhoneNumberValid(phoneNumber)){
+
                 customer.setAssurance(customerRequestDto.getAssurance());
                 customer.setIncome(customerRequestDto.getIncome());
                 customer.setPhoneNum(customerRequestDto.getPhoneNum());
@@ -132,15 +127,7 @@ public class CustomerService {
 
                 CustomerDto customerDto = CustomerConverter.INSTANCE.convertAllCustomerListToCustomerDtoList(customer);
                 return customerDto;
-            }
 
-            log.error("This customer phone number not valid.");
-            throw new PhoneNumberNotValidException(Exceptions.PhoneNumberNotValidException.getMessage());
-        }
-        else{
-            log.error("This customer ID number does not exist.");
-            throw  new IDNumberDoesNotExistException(Exceptions.IDNumberDoesNotExistException.getMessage());
-        }
     }
 
     private void saveCreditApplicationAndInformCustomer(int creditScore, BigDecimal income, BigDecimal assurance, Customer customer){
@@ -157,49 +144,14 @@ public class CustomerService {
     public String deleteCustomerByIdNum(String idNum) {
 
         log.info("Customer deletion request received.");
+        Optional<Customer> customerOptional = customerDao.findByIdNum(idNum);
+        Customer customer = validateService.validateExistingCustomer(customerOptional);
 
-        boolean isCustomerExist= isCustomerExist(idNum);
-        if(isCustomerExist){
-            customerDao.deleteByIdNum(idNum);
-            log.warn("The client's applications were also deleted.");
-            return "Delete successfully.";
-        }
-        else{
-            log.error("This customer ID number does not exist.");
-            throw new CustomerDoesNotExistException(Exceptions.CustomerDoesNotExistException.getMessage());
-        }
+        customerDao.deleteByIdNum(customer.getIdNum());
+        log.warn("The client's applications were also deleted.");
+        return "Delete successfully.";
+
     }
-
-    private boolean isCustomerExist(String idNum){
-
-        Customer customer = customerDao.findByIdNum(idNum);
-
-        if(customer !=null){
-            return true;
-        }
-        return false;
-    }
-
-    private boolean isPhoneNumberValid(String phoneNumber){
-
-        String firstLetter= phoneNumber.substring(0,1);
-        String secondLetter= phoneNumber.substring(1,2);
-
-        if(firstLetter.equals("0") && secondLetter.equals("5")){
-            return true;
-        }
-        return false;
-    }
-
-    private boolean isPhoneNumberExist(String phoneNumber){
-        Customer customer = customerDao.findByPhoneNum(phoneNumber);
-
-        if(customer !=null){
-            return true;
-        }
-        return false;
-    }
-
 
     private void setCreditApplicationStrategy(CreditApplication creditApplication) {
         this.creditApplication = creditApplication;

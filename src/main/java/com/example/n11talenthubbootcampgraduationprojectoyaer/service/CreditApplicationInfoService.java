@@ -20,6 +20,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -32,6 +33,9 @@ public class CreditApplicationInfoService {
     @Autowired
     private CreditApplicationInfoDao infoDao;
 
+    @Autowired
+    private ValidateService validateService;
+
 
     public List<CreditStatusResponseDto> getCreditStatus(CreditStatusDto creditStatusDto) {
 
@@ -41,7 +45,9 @@ public class CreditApplicationInfoService {
         LocalDate birthDate= creditStatusDto.getBirthDate();
 
 
-        Customer customer= customerDao.findByIdNum(idNum);
+        Optional<Customer> optionalCustomer= customerDao.findByIdNum(idNum);
+        Customer customer = validateService.validateExistingCustomer(optionalCustomer);
+
         Date birth= customer.getBirthDate();
         LocalDate localDate = LocalDate.parse( new SimpleDateFormat("yyyy-MM-dd").format(birth) );
 
