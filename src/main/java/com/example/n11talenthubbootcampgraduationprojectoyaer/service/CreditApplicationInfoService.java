@@ -1,7 +1,6 @@
 package com.example.n11talenthubbootcampgraduationprojectoyaer.service;
 
 import com.example.n11talenthubbootcampgraduationprojectoyaer.converter.CreditApplicationInfoConverter;
-import com.example.n11talenthubbootcampgraduationprojectoyaer.converter.CustomerConverter;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.dao.CustomerDao;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.dao.CreditApplicationInfoDao;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.dto.CreditStatusDto;
@@ -34,7 +33,9 @@ public class CreditApplicationInfoService {
     private CreditApplicationInfoDao infoDao;
 
 
-    public CreditStatusResponseDto getCreditStatus(CreditStatusDto creditStatusDto) {
+    public List<CreditStatusResponseDto> getCreditStatus(CreditStatusDto creditStatusDto) {
+
+        log.info("A request to view credit results has been received.");
 
         String idNum= creditStatusDto.getIdNum();
         LocalDate birthDate= creditStatusDto.getBirthDate();
@@ -47,15 +48,13 @@ public class CreditApplicationInfoService {
 
         if(localDate.isEqual(birthDate)){
 
-            List<CreditApplicationInfo> infoCustomer = infoDao.findByCustomerId(customer.getId());
+            List<CreditApplicationInfo> creditApplicationInfoList = infoDao.findByCustomerId(customer.getId());
 
-            CreditStatusResponseDto responseDto = CreditApplicationInfoConverter.INSTANCE.convertAllCreditApplicationInfoListToCreditStatusResponseDtoList(infoCustomer.get(0));
+            List<CreditStatusResponseDto> responseDto = CreditApplicationInfoConverter.INSTANCE.convertAllCreditApplicationInfoListToCreditStatusResponseDtoList(creditApplicationInfoList);
 
-            for (CreditApplicationInfo infoEntity : infoCustomer) {
+            for (CreditApplicationInfo infoEntity : creditApplicationInfoList) {
 
                 if(infoEntity.getCreditStatus().equals(CreditStatusType.ONAY.getCreditStatus())){
-
-                    //return "Kredi Sonucu:" + infoEntity.getCreditStatus() +  "\r" +"Kredi Limiti:" + infoEntity.getCreditLimit();
                     return responseDto;
                 }
 
@@ -63,6 +62,7 @@ public class CreditApplicationInfoService {
             return responseDto;
         }
         else {
+            log.error("Customer ID Number and birthdate not matched.");
             throw new IDNumberAndBirthDateNotMatchException(Exceptions.IDNumberAndBirthDateNotMatchException.getMessage());
         }
 
@@ -74,7 +74,7 @@ public class CreditApplicationInfoService {
         String creditStatus= info.getCreditStatus();
         BigDecimal creditLimit=info.getCreditLimit();
 
-        log.info("Kredi Sonucu: " + creditStatus + " " + "Kredi Limit: " + creditLimit + " " + phoneNumber + " numaralı kullanıcıya gönderildi.");
+        log.info("Kredi Durum: " + creditStatus + " " + "Kredi Limit: " + creditLimit + ", " + phoneNumber + " telefon numaralı müşteriye gönderildi.");
 
     }
 }

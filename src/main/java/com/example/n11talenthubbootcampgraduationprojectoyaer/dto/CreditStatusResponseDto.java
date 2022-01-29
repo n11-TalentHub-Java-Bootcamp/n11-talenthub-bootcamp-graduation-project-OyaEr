@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -15,5 +16,6 @@ public class CreditStatusResponseDto {
 
     private BigDecimal creditLimit;
     private String creditStatus;
+    private Date  applicationDate;
 
 }

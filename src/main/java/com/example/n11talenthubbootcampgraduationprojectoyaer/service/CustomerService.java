@@ -40,13 +40,13 @@ public class CustomerService {
     private CreditApplicationInfoService infoService;
 
 
-
     private CreditApplication creditApplication;
 
 
 
     public CustomerDto saveCustomers(CustomerDto customerDto) {
 
+        log.info("Customer registration request received.");
         Customer customer = CustomerConverter.INSTANCE.convertAllCustomerDtoListToCustomerList(customerDto);
 
         boolean isCustomerExist= isCustomerExist(customer.getIdNum());
@@ -55,23 +55,22 @@ public class CustomerService {
         if(isCustomerExist){
             log.error("This customer ID Number " + customer.getIdNum() + " already exists.");
             throw  new SameIdNumberException(Exceptions.SameIdNumberException.getMessage());
-            //"This customer ID Number " + customer.getIdNum() + " already exists."
         }
         if(isPhoneNumberExist){
+            log.error("This customer phone number " + customer.getPhoneNum() + " already exists.");
             throw new SamePhoneNumberException(Exceptions.SamePhoneNumberException.getMessage());
-            //"This customer phone number " + customer.getPhoneNum()+ " already exists."
         }
         if(isPhoneNumberValid(customer.getPhoneNum())){
             customer.setCreditScore(creditScore.calculateCreditScore(customer));
             customerDao.save(customer);
-            CreditApplicationInfo creditInfo = creditApprove(customer.getCreditScore(), customer.getIncome(), customer.getAssurance(), customer);
+            log.info("Customer saved.");
 
-            infoDao.save(creditInfo);
-            infoService.sendSms(customer,creditInfo);
-
+            log.info("Redirected to the method of saving applications and sending sms.");
+            saveCreditApplicationAndInformCustomer(customer.getCreditScore(), customer.getIncome(), customer.getAssurance(), customer);
             return customerDto;
         }
         else{
+            log.error("This customer phone number not valid.");
             throw new PhoneNumberNotValidException(Exceptions.PhoneNumberNotValidException.getMessage());
         }
     }
@@ -93,11 +92,14 @@ public class CustomerService {
             setCreditApplicationStrategy(new ConcreteCreditApplicationCase5());
         }
 
+        log.info("Credit limit strategies have been determined. The relevant method will be run.");
         return executeCreditApplicationStrategy(creditScore,income,assurance, customer);
 
     }
 
     public CustomerDto updateCustomerInfo(String idNum, CustomerRequestDto customerRequestDto) {
+
+        log.info("Customer update request received.");
 
         boolean isCustomerExist= isCustomerExist(idNum);
         boolean isPhoneNumberExist = isPhoneNumberExist(customerRequestDto.getPhoneNum());
@@ -108,6 +110,8 @@ public class CustomerService {
 
         if(isCustomerExist){
             if(isPhoneNumberExist){
+
+                log.error("This customer phone number " + customer.getPhoneNum() + " already exists.");
                 throw new SamePhoneNumberException(Exceptions.SamePhoneNumberException.getMessage());
             }
             if(isPhoneNumberValid(phoneNumber)){
@@ -118,35 +122,50 @@ public class CustomerService {
 
                 for (CreditApplicationInfo infoEntity : customerApproveList) {
                     if(infoEntity.getCreditStatus().equals(CreditStatusType.ONAY.getCreditStatus())){
+                        log.error("Have approved credit. Application cannot be made.");
                         throw new ApprovedApplicationException(Exceptions.ApprovedApplicationException.getMessage());
                     }
                 }
 
-                CreditApplicationInfo creditInfo =creditApprove(customer.getCreditScore(), customer.getIncome(), customer.getAssurance(), customer);
-                infoDao.save(creditInfo);
-                infoService.sendSms(customer,creditInfo);
+                log.info("Redirected to the method of saving applications and sending sms.");
+                saveCreditApplicationAndInformCustomer(customer.getCreditScore(), customer.getIncome(), customer.getAssurance(), customer);
 
                 CustomerDto customerDto = CustomerConverter.INSTANCE.convertAllCustomerListToCustomerDtoList(customer);
                 return customerDto;
             }
 
+            log.error("This customer phone number not valid.");
             throw new PhoneNumberNotValidException(Exceptions.PhoneNumberNotValidException.getMessage());
         }
         else{
+            log.error("This customer ID number does not exist.");
             throw  new IDNumberDoesNotExistException(Exceptions.IDNumberDoesNotExistException.getMessage());
         }
+    }
+
+    private void saveCreditApplicationAndInformCustomer(int creditScore, BigDecimal income, BigDecimal assurance, Customer customer){
+
+        CreditApplicationInfo creditInfo =creditApprove(customer.getCreditScore(), customer.getIncome(), customer.getAssurance(), customer);
+        infoDao.save(creditInfo);
+        infoService.sendSms(customer,creditInfo);
+
+        log.info("Customer credit application saved. The sms sending method has been called.");
     }
 
 
 
     public String deleteCustomerByIdNum(String idNum) {
 
+        log.info("Customer deletion request received.");
+
         boolean isCustomerExist= isCustomerExist(idNum);
         if(isCustomerExist){
             customerDao.deleteByIdNum(idNum);
+            log.warn("The client's applications were also deleted.");
             return "Delete successfully.";
         }
         else{
+            log.error("This customer ID number does not exist.");
             throw new CustomerDoesNotExistException(Exceptions.CustomerDoesNotExistException.getMessage());
         }
     }
@@ -180,6 +199,7 @@ public class CustomerService {
         }
         return false;
     }
+
 
     private void setCreditApplicationStrategy(CreditApplication creditApplication) {
         this.creditApplication = creditApplication;

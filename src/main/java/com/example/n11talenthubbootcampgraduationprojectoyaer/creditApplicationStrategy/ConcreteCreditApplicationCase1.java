@@ -3,12 +3,13 @@ package com.example.n11talenthubbootcampgraduationprojectoyaer.creditApplication
 import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.Customer;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.CreditApplicationInfo;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.enums.CreditStatusType;
+import lombok.extern.slf4j.Slf4j;
 
 
 import java.math.BigDecimal;
 import java.util.Date;
 
-
+@Slf4j
 public class ConcreteCreditApplicationCase1 implements CreditApplication{
 
     @Override
@@ -19,6 +20,7 @@ public class ConcreteCreditApplicationCase1 implements CreditApplication{
                 .creditLimit(new BigDecimal (0))
                 .creditStatus(CreditStatusType.RED.getCreditStatus())
                 .build();
+        log.info("Credit score below 500,case-1 run.");
         return customerInfo;
     }
 }

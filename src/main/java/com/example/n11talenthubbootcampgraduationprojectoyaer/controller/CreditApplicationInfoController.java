@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1/creditAppInfos")
 @CrossOrigin
@@ -19,9 +21,9 @@ public class CreditApplicationInfoController {
     @Autowired
     private CreditApplicationInfoService infoService;
 
-    @Operation(summary = "We bring the result of the credit application.")
+    @Operation(summary = "We return the customer's credit results.")
     @PostMapping("")
-     public ResponseEntity<CreditStatusResponseDto> getCreditApproval (@RequestBody CreditStatusDto creditStatusDto){
+     public ResponseEntity<List<CreditStatusResponseDto>> getCreditApproval (@RequestBody CreditStatusDto creditStatusDto){
         return ResponseEntity.status(HttpStatus.OK).body(infoService.getCreditStatus(creditStatusDto));
     }
 }

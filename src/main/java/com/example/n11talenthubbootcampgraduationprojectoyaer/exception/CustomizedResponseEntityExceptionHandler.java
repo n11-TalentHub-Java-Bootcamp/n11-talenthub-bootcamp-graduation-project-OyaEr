@@ -56,6 +56,7 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
         return getErrorResponse(ex, webRequest, HttpStatus.BAD_REQUEST);
     }
 
+
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
 

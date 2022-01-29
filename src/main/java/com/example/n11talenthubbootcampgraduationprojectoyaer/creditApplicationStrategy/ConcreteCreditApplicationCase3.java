@@ -2,14 +2,15 @@ package com.example.n11talenthubbootcampgraduationprojectoyaer.creditApplication
 import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.Customer;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.CreditApplicationInfo;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.enums.CreditStatusType;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
-@Transactional
 @Component
+@Slf4j
 public class ConcreteCreditApplicationCase3 implements CreditApplication{
 
 
@@ -32,7 +33,7 @@ public class ConcreteCreditApplicationCase3 implements CreditApplication{
                     .creditLimit(creditLimit)
                     .creditStatus(CreditStatusType.ONAY.getCreditStatus())
                     .build();
-
+            log.info("Case-3 with assurance run.");
             return customerInfo;
         }
 
@@ -44,6 +45,7 @@ public class ConcreteCreditApplicationCase3 implements CreditApplication{
                     .creditStatus(CreditStatusType.ONAY.getCreditStatus())
                     .build();
 
+            log.info("Case-3 without assurance run.");
             return customerInfo;
         }
     }
