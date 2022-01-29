@@ -107,26 +107,20 @@ public class CustomerService {
         String phoneNumber= customerRequestDto.getPhoneNum();
         List<CreditApplicationInfo> customerApproveList = infoDao.findByCustomerId(customerId);
 
-            validateService.isPhoneNumberValid(customerRequestDto.getPhoneNum());
+        validateService.isPhoneNumberValid(phoneNumber);
 
+        customer.setAssurance(customerRequestDto.getAssurance());
+        customer.setIncome(customerRequestDto.getIncome());
+        customer.setPhoneNum(customerRequestDto.getPhoneNum());
+        customer.setCreditScore(creditScore.calculateCreditScore(customer));
 
-                customer.setAssurance(customerRequestDto.getAssurance());
-                customer.setIncome(customerRequestDto.getIncome());
-                customer.setPhoneNum(customerRequestDto.getPhoneNum());
-                customer.setCreditScore(creditScore.calculateCreditScore(customer));
+        validateService.validateNoneApprovedCredit(customerApproveList);
 
-                for (CreditApplicationInfo infoEntity : customerApproveList) {
-                    if(infoEntity.getCreditStatus().equals(CreditStatusType.ONAY.getCreditStatus())){
-                        log.error("Have approved credit. Application cannot be made.");
-                        throw new ApprovedApplicationException(Exceptions.ApprovedApplicationException.getMessage());
-                    }
-                }
+        log.info("Redirected to the method of saving applications and sending sms.");
+        saveCreditApplicationAndInformCustomer(customer.getCreditScore(), customer.getIncome(), customer.getAssurance(), customer);
 
-                log.info("Redirected to the method of saving applications and sending sms.");
-                saveCreditApplicationAndInformCustomer(customer.getCreditScore(), customer.getIncome(), customer.getAssurance(), customer);
-
-                CustomerDto customerDto = CustomerConverter.INSTANCE.convertAllCustomerListToCustomerDtoList(customer);
-                return customerDto;
+        CustomerDto customerDto = CustomerConverter.INSTANCE.convertAllCustomerListToCustomerDtoList(customer);
+        return customerDto;
 
     }
 

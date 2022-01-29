@@ -18,6 +18,9 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.runners.MockitoJUnitRunner;
+
+import java.util.Optional;
+
 import static org.mockito.Mockito.when;
 
 
@@ -45,18 +48,7 @@ public class CustomerServiceTest {
     @Test
     public void shouldSaveCustomer(){
 
-//        CustomerDto customerDto = new CustomerDto();
-//        customerDto.setFullName("oya erdayı");
-//        Customer customer = CustomerConverter.INSTANCE.convertAllCustomerDtoListToCustomerList(customerDto);
-//
-//        when(customerDao.findByIdNum(customer.getIdNum())).thenReturn(null);
-//        when(customerDao.findByPhoneNum(customer.getPhoneNum())).thenReturn(null);
-//
-//        customerService.saveCustomers(customerDto);
-//
-//        Customer expectedCustomer= customerDao.save(customer);
-//
-//        Assertions.assertEquals(customer.getFullName(),expectedCustomer.getFullName());
+
 
 
     }

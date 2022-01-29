@@ -1,15 +1,15 @@
 package com.example.n11talenthubbootcampgraduationprojectoyaer.service;
 
+import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.CreditApplicationInfo;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.Customer;
+import com.example.n11talenthubbootcampgraduationprojectoyaer.enums.CreditStatusType;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.enums.Exceptions;
-import com.example.n11talenthubbootcampgraduationprojectoyaer.exception.CustomerDoesNotExistException;
-import com.example.n11talenthubbootcampgraduationprojectoyaer.exception.PhoneNumberNotValidException;
-import com.example.n11talenthubbootcampgraduationprojectoyaer.exception.SameIdNumberException;
-import com.example.n11talenthubbootcampgraduationprojectoyaer.exception.SamePhoneNumberException;
+import com.example.n11talenthubbootcampgraduationprojectoyaer.exception.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -55,5 +55,15 @@ public class ValidateService {
 
         log.error("This customer phone number not valid.");
         throw new PhoneNumberNotValidException(Exceptions.PhoneNumberNotValidException.getMessage());
+    }
+
+    public void validateNoneApprovedCredit(List<CreditApplicationInfo> customerApproveList){
+
+        for (CreditApplicationInfo infoEntity : customerApproveList) {
+            if(infoEntity.getCreditStatus().equals(CreditStatusType.ONAY.getCreditStatus())){
+                log.error("Have approved credit. Application cannot be made.");
+                throw new ApprovedApplicationException(Exceptions.ApprovedApplicationException.getMessage());
+            }
+        }
     }
 }
