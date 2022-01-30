@@ -52,6 +52,7 @@ This section list any major frameworks/libraries/technologies/databases used in 
 * [Java Spring Boot](https://spring.io/projects/spring-boot)
 * [React.js](https://tr.reactjs.org/)
 * [PostgreSQL](https://www.postgresql.org/)
+* [Maven](https://maven.apache.org/)
 * [Swagger](https://swagger.io/)
 * [Postman](https://www.postman.com/)
 * [IntelliJ IDEA](https://www.jetbrains.com/idea/)
@@ -68,7 +69,22 @@ This section list any major frameworks/libraries/technologies/databases used in 
 This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
+### Backend Prequisites
+
+Before get start you need to be sure that written technologies below must be downloaded on your system.
+
+* [Java JDK](https://www.oracle.com/java/technologies/downloads/#java11-windows)
+* [PostgreSQL](https://www.postgresql.org/)
+* [IntelliJ IDEA](https://www.jetbrains.com/idea/)
+
+Configuration details use by maven is in [pom.xml](https://github.com/n11-TalentHub-Java-Bootcamp/n11-talenthub-bootcamp-graduation-project-OyaEr/blob/main/pom.xml) file. 
+The other application properties are listed in [application.properties](https://github.com/n11-TalentHub-Java-Bootcamp/n11-talenthub-bootcamp-graduation-project-OyaEr/blob/main/src/main/resources/application.properties) file. If you want to use your local database you must change related fields about PostgreSQL in application.properties.
+
+After all this you can run this project by opening it on IntelliJ IDEA and simply build and run. 
+To perform API you can use [Postman Collections]() under the directory named resources.
+
+
+### Frontend Prequisites
 
 This is an example of how to list things you need to use the software and how to install them.
 * npm

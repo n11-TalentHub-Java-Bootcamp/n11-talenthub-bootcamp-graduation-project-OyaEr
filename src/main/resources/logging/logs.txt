@@ -30,4 +30,6 @@
 ""2022-01-30 22:02:35 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
 ""2022-01-30 22:02:37 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 ""2022-01-30 22:02:39 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Started N11TalenthubBootcampGraduationProjectOyaErApplication in 8.171 seconds (JVM running for 11.381)
+""2022-01-30 22:04:22 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+""2022-01-30 22:04:22 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
 "

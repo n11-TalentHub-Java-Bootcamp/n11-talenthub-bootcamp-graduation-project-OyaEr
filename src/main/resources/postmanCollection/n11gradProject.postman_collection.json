@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "18312e7b-8046-4e63-a067-0c407d8ab5a9",
+		"name": "n11gradProject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "saveCustomers",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idNum\":\"11111111111\",\r\n    \"fullName\":\"Oya Erdayı\",\r\n    \"income\":9000,\r\n    \"phoneNum\":\"05319432020\",\r\n    \"birthDate\":\"1995-03-30\",\r\n    \"assurance\":10000\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/customers",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateCustomers",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"income\":20000,\r\n    \"assurance\":20000,\r\n    \"phoneNum\":\"05319432020\"    \r\n}\r\n"
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/customers/11111111111",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"customers",
+						"11111111111"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteCustomers",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/v1/customers/11111111111",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"customers",
+						"11111111111"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCreditStatus",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idNum\":\"11111111111\",\r\n    \"birthDate\":\"1995-03-30\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/creditAppInfos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"creditAppInfos"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
