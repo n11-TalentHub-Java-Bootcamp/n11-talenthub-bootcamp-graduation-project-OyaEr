@@ -1,7 +1,17 @@
 import React from 'react'; 
 import serialize from 'form-serialize';
-import {Navigate } from "react-router-dom";
+import FormArea from '../components/FormArea/FormArea';
+import InformArea from '../components/InformArea/InformArea';
+
 class NewCustomerPage extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      isFormSubmit: false,
+      response: 'success',
+      message: ''
+    }
+  }  
 
   handleFormSubmit = (e) =>{
     e.preventDefault();
@@ -21,67 +31,38 @@ class NewCustomerPage extends React.Component {
     fetch(uri,requestOptions)
       .then(response => {
         if (response.ok) {
-          return <Navigate to={"./sent-info"}/>
+          this.setState({
+            response: 'success',
+            isFormSubmit: true
+          });
         }
-        return response.json()
+        return response.json();
       }).then( res =>  {
         console.log(res);
-        console.log(res.status);
+        if(res.message){
+          this.setState({
+            response: 'danger',
+            isFormSubmit: true,
+            message: res.message
+          }); 
+        }
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        console.log(error);
+        this.setState({
+          response: 'danger',
+          isFormSubmit: true
+        });
+      });
   }
-
-
 
   render(){
     return (
-      <div className="container col-md-6 offset-md-3">
-        <form className="mt-5" onSubmit={this.handleFormSubmit}>
-          <div className="form-row">
-              <div className="form-group">
-                  <label htmlFor="inputName">TC Kimlik No</label>
-                  <input type="text"
-                      // value={this.state.idNum}
-                      className="form-control"
-                      name="idNum" />
-              </div>
-              <div className="form-group">
-                  <label htmlFor="inputName">Ad Soyad</label>
-                  <input type="text"
-                      // value={this.state.fullName}
-                      className="form-control"
-                      name="fullName" />
-              </div>
-              <div className="form-group ">
-                  <label htmlFor="inputRating">Doğum Tarihi</label>
-                  <input
-                    // value={this.state.birthDate}
-                    className="form-control "
-                    name="birthDate" />
-              </div>
-              <div className="form-group ">
-                  <label htmlFor="inputRating">Telefon</label>
-                  <input
-                    className="form-control "
-                    name="phoneNum" />
-              </div>
-              <div className="form-group ">
-                  <label htmlFor="inputRating">Aylık Gelir</label>
-                  <input
-                    className="form-control "
-                    name="income" />
-              </div>
-              <div className="form-group ">
-                  <label htmlFor="inputRating">Teminat</label>
-                  <input
-                    className="form-control "
-                    name="assurance" />
-              </div>
-          </div><hr></hr>
-
-            <input type="submit" className="btn btn-danger btn-block" value="Müşteri Ol ve Başvur" />
-        </form>
-      </div>
+      <>
+      {
+        this.state.isFormSubmit ?  <InformArea type="customer-result" variant={this.state.response} />  : <FormArea onSubmit={this.handleFormSubmit} type="full" />
+      }
+      </>
     );
   }
 }

@@ -6,7 +6,6 @@ import HomePage from './pages/HomePage';
 import CreditResultsPage from './pages/CreditResultsPage';
 import NewCustomerPage from './pages/NewCustomerPage';
 import UpdateCustomerPage from './pages/UpdateCustomerPage';
-import InfoPage from './pages/InfoPage';
 //import background from './assets/background.png';
 
 class App extends React.Component {
@@ -19,7 +18,6 @@ class App extends React.Component {
         <Route path="/results" element={<CreditResultsPage></CreditResultsPage>}/>
         <Route path="/new-customer" element={<NewCustomerPage></NewCustomerPage>}/>
         <Route path="/update-customer" element={<UpdateCustomerPage></UpdateCustomerPage>}/>
-        <Route path="/sent-info" element={<InfoPage></InfoPage>}/>
       </Routes>
     </div>
   );}

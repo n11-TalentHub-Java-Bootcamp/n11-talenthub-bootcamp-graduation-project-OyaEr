@@ -1,0 +1,108 @@
+"2022-01-30 15:38:02 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Starting N11TalenthubBootcampGraduationProjectOyaErApplication using Java 11.0.12 on DESKTOP-DSFH67A with PID 13616 (C:\DEV\n11Bootcamp\n11-talenthub-bootcamp-graduation-project-OyaEr\target\classes started by oyaer in C:\DEV\n11Bootcamp\n11-talenthub-bootcamp-graduation-project-OyaEr)
+""2022-01-30 15:38:02 [restartedMain] DEBUG c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Running with Spring Boot v2.6.3, Spring v5.3.15
+""2022-01-30 15:38:02 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - No active profile set, falling back to default profiles: default
+""2022-01-30 15:38:05 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2022-01-30 15:38:05 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+""2022-01-30 15:38:05 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2022-01-30 15:38:06 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2022-01-30 15:38:06 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.4.Final
+""2022-01-30 15:38:06 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2022-01-30 15:38:06 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+""2022-01-30 15:38:07 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+""2022-01-30 15:38:07 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+""2022-01-30 15:38:08 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2022-01-30 15:38:10 [restartedMain] INFO  c.e.n.N11TalenthubBootcampGraduationProjectOyaErApplication - Started N11TalenthubBootcampGraduationProjectOyaErApplication in 8.877 seconds (JVM running for 11.878)
+""2022-01-30 15:46:31 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+""2022-01-30 15:46:31 [http-nio-8080-exec-2] INFO  c.e.n.service.CustomerService - Customer registration request received.
+""2022-01-30 15:46:31 [http-nio-8080-exec-2] INFO  c.e.n.util.CreditScore - Credit score assigned to 950
+""2022-01-30 15:46:31 [http-nio-8080-exec-2] INFO  c.e.n.service.CustomerService - Customer saved.
+""2022-01-30 15:46:31 [http-nio-8080-exec-2] INFO  c.e.n.service.CustomerService - Redirected to the method of saving applications and sending sms.
+""2022-01-30 15:46:31 [http-nio-8080-exec-2] INFO  c.e.n.service.CustomerService - Credit limit strategies have been determined. The relevant method will be run.
+""2022-01-30 15:46:31 [http-nio-8080-exec-2] INFO  c.e.n.c.ConcreteCreditApplicationCase4 - Case-4 with assurance run.
+""2022-01-30 15:46:31 [http-nio-8080-exec-2] INFO  c.e.n.s.CreditApplicationInfoService - Kredi Durum: ONAY Kredi Limit: 67500, 05326983311 telefon numaralı müşteriye gönderildi.
+""2022-01-30 15:46:31 [http-nio-8080-exec-2] INFO  c.e.n.service.CustomerService - Customer credit application saved. The sms sending method has been called.
+""2022-01-30 15:53:49 [http-nio-8080-exec-4] INFO  c.e.n.service.CustomerService - Customer registration request received.
+""2022-01-30 15:53:49 [http-nio-8080-exec-4] INFO  c.e.n.util.CreditScore - Credit score assigned to 950
+""2022-01-30 15:53:49 [http-nio-8080-exec-4] INFO  c.e.n.service.CustomerService - Customer saved.
+""2022-01-30 15:53:49 [http-nio-8080-exec-4] INFO  c.e.n.service.CustomerService - Redirected to the method of saving applications and sending sms.
+""2022-01-30 15:53:49 [http-nio-8080-exec-4] INFO  c.e.n.service.CustomerService - Credit limit strategies have been determined. The relevant method will be run.
+""2022-01-30 15:53:49 [http-nio-8080-exec-4] INFO  c.e.n.c.ConcreteCreditApplicationCase4 - Case-4 without assurance run.
+""2022-01-30 15:53:49 [http-nio-8080-exec-4] INFO  c.e.n.s.CreditApplicationInfoService - Kredi Durum: ONAY Kredi Limit: 32000, 05319432329 telefon numaralı müşteriye gönderildi.
+""2022-01-30 15:53:49 [http-nio-8080-exec-4] INFO  c.e.n.service.CustomerService - Customer credit application saved. The sms sending method has been called.
+""2022-01-30 15:57:58 [http-nio-8080-exec-6] INFO  c.e.n.service.CustomerService - Customer registration request received.
+""2022-01-30 15:57:58 [http-nio-8080-exec-6] INFO  c.e.n.util.CreditScore - Credit score assigned to 500
+""2022-01-30 15:57:58 [http-nio-8080-exec-6] INFO  c.e.n.service.CustomerService - Customer saved.
+""2022-01-30 15:57:58 [http-nio-8080-exec-6] INFO  c.e.n.service.CustomerService - Redirected to the method of saving applications and sending sms.
+""2022-01-30 15:57:58 [http-nio-8080-exec-6] INFO  c.e.n.service.CustomerService - Credit limit strategies have been determined. The relevant method will be run.
+""2022-01-30 15:57:58 [http-nio-8080-exec-6] INFO  c.e.n.c.ConcreteCreditApplicationCase2 - Case-2 without assurance run.
+""2022-01-30 15:57:58 [http-nio-8080-exec-6] INFO  c.e.n.s.CreditApplicationInfoService - Kredi Durum: ONAY Kredi Limit: 10000, 05312362222 telefon numaralı müşteriye gönderildi.
+""2022-01-30 15:57:58 [http-nio-8080-exec-6] INFO  c.e.n.service.CustomerService - Customer credit application saved. The sms sending method has been called.
+""2022-01-30 15:58:40 [http-nio-8080-exec-7] INFO  c.e.n.service.CustomerService - Customer registration request received.
+""2022-01-30 15:58:40 [http-nio-8080-exec-7] INFO  c.e.n.util.CreditScore - Credit score assigned to 1000
+""2022-01-30 15:58:40 [http-nio-8080-exec-7] INFO  c.e.n.service.CustomerService - Customer saved.
+""2022-01-30 15:58:40 [http-nio-8080-exec-7] INFO  c.e.n.service.CustomerService - Redirected to the method of saving applications and sending sms.
+""2022-01-30 15:58:40 [http-nio-8080-exec-7] INFO  c.e.n.service.CustomerService - Credit limit strategies have been determined. The relevant method will be run.
+""2022-01-30 15:58:40 [http-nio-8080-exec-7] INFO  c.e.n.c.ConcreteCreditApplicationCase5 - Case-5 with assurance run.
+""2022-01-30 15:58:40 [http-nio-8080-exec-7] INFO  c.e.n.s.CreditApplicationInfoService - Kredi Durum: ONAY Kredi Limit: 140000, 05324561111 telefon numaralı müşteriye gönderildi.
+""2022-01-30 15:58:40 [http-nio-8080-exec-7] INFO  c.e.n.service.CustomerService - Customer credit application saved. The sms sending method has been called.
+""2022-01-30 15:59:09 [http-nio-8080-exec-8] INFO  c.e.n.service.CustomerService - Customer registration request received.
+""2022-01-30 15:59:09 [http-nio-8080-exec-8] ERROR c.e.n.service.ValidateService - This customer ID Number 11911781432 already exists.
+""2022-01-30 16:01:46 [http-nio-8080-exec-9] INFO  c.e.n.service.CustomerService - Customer registration request received.
+""2022-01-30 16:01:46 [http-nio-8080-exec-9] ERROR c.e.n.service.ValidateService - This customer ID Number 11911781432 already exists.
+""2022-01-30 16:03:48 [http-nio-8080-exec-10] INFO  c.e.n.service.CustomerService - Customer registration request received.
+""2022-01-30 16:03:48 [http-nio-8080-exec-10] ERROR c.e.n.service.ValidateService - This customer ID Number 11911781432 already exists.
+""2022-01-30 16:04:56 [http-nio-8080-exec-1] INFO  c.e.n.service.CustomerService - Customer registration request received.
+""2022-01-30 16:04:56 [http-nio-8080-exec-1] ERROR c.e.n.service.ValidateService - This customer ID Number 11911781432 already exists.
+""2022-01-30 16:54:30 [http-nio-8080-exec-3] INFO  c.e.n.s.CreditApplicationInfoService - A request to view credit results has been received.
+""2022-01-30 16:54:30 [http-nio-8080-exec-3] ERROR c.e.n.service.ValidateService - Customer ID Number and birthdate not matched.
+""2022-01-30 16:56:16 [http-nio-8080-exec-4] INFO  c.e.n.s.CreditApplicationInfoService - A request to view credit results has been received.
+""2022-01-30 17:05:07 [http-nio-8080-exec-7] INFO  c.e.n.service.CustomerService - Customer registration request received.
+""2022-01-30 17:05:07 [http-nio-8080-exec-7] INFO  c.e.n.util.CreditScore - Credit score assigned to 900
+""2022-01-30 17:05:07 [http-nio-8080-exec-7] INFO  c.e.n.service.CustomerService - Customer saved.
+""2022-01-30 17:05:07 [http-nio-8080-exec-7] INFO  c.e.n.service.CustomerService - Redirected to the method of saving applications and sending sms.
+""2022-01-30 17:05:07 [http-nio-8080-exec-7] INFO  c.e.n.service.CustomerService - Credit limit strategies have been determined. The relevant method will be run.
+""2022-01-30 17:05:07 [http-nio-8080-exec-7] INFO  c.e.n.c.ConcreteCreditApplicationCase3 - Case-3 with assurance run.
+""2022-01-30 17:05:07 [http-nio-8080-exec-7] INFO  c.e.n.s.CreditApplicationInfoService - Kredi Durum: ONAY Kredi Limit: 21600, 05313216699 telefon numaralı müşteriye gönderildi.
+""2022-01-30 17:05:07 [http-nio-8080-exec-7] INFO  c.e.n.service.CustomerService - Customer credit application saved. The sms sending method has been called.
+""2022-01-30 17:07:36 [http-nio-8080-exec-9] INFO  c.e.n.service.CustomerService - Customer registration request received.
+""2022-01-30 17:07:36 [http-nio-8080-exec-9] INFO  c.e.n.util.CreditScore - Credit score assigned to 1000
+""2022-01-30 17:07:36 [http-nio-8080-exec-9] INFO  c.e.n.service.CustomerService - Customer saved.
+""2022-01-30 17:07:36 [http-nio-8080-exec-9] INFO  c.e.n.service.CustomerService - Redirected to the method of saving applications and sending sms.
+""2022-01-30 17:07:36 [http-nio-8080-exec-9] INFO  c.e.n.service.CustomerService - Credit limit strategies have been determined. The relevant method will be run.
+""2022-01-30 17:07:36 [http-nio-8080-exec-9] INFO  c.e.n.c.ConcreteCreditApplicationCase5 - Case-5 with assurance run.
+""2022-01-30 17:07:36 [http-nio-8080-exec-9] INFO  c.e.n.s.CreditApplicationInfoService - Kredi Durum: ONAY Kredi Limit: 401500, 05366339985 telefon numaralı müşteriye gönderildi.
+""2022-01-30 17:07:36 [http-nio-8080-exec-9] INFO  c.e.n.service.CustomerService - Customer credit application saved. The sms sending method has been called.
+""2022-01-30 17:09:27 [http-nio-8080-exec-1] INFO  c.e.n.service.CustomerService - Customer registration request received.
+""2022-01-30 17:09:27 [http-nio-8080-exec-1] INFO  c.e.n.util.CreditScore - Credit score assigned to 1000
+""2022-01-30 17:09:27 [http-nio-8080-exec-1] INFO  c.e.n.service.CustomerService - Customer saved.
+""2022-01-30 17:09:27 [http-nio-8080-exec-1] INFO  c.e.n.service.CustomerService - Redirected to the method of saving applications and sending sms.
+""2022-01-30 17:09:27 [http-nio-8080-exec-1] INFO  c.e.n.service.CustomerService - Credit limit strategies have been determined. The relevant method will be run.
+""2022-01-30 17:09:27 [http-nio-8080-exec-1] INFO  c.e.n.c.ConcreteCreditApplicationCase5 - Case-5 with assurance run.
+""2022-01-30 17:09:27 [http-nio-8080-exec-1] INFO  c.e.n.s.CreditApplicationInfoService - Kredi Durum: ONAY Kredi Limit: 125000, 05326541131 telefon numaralı müşteriye gönderildi.
+""2022-01-30 17:09:27 [http-nio-8080-exec-1] INFO  c.e.n.service.CustomerService - Customer credit application saved. The sms sending method has been called.
+""2022-01-30 17:10:08 [http-nio-8080-exec-3] INFO  c.e.n.s.CreditApplicationInfoService - A request to view credit results has been received.
+""2022-01-30 17:11:24 [http-nio-8080-exec-5] INFO  c.e.n.s.CreditApplicationInfoService - A request to view credit results has been received.
+""2022-01-30 17:12:00 [http-nio-8080-exec-7] INFO  c.e.n.s.CreditApplicationInfoService - A request to view credit results has been received.
+""2022-01-30 17:14:40 [http-nio-8080-exec-9] INFO  c.e.n.s.CreditApplicationInfoService - A request to view credit results has been received.
+""2022-01-30 17:15:56 [http-nio-8080-exec-1] INFO  c.e.n.s.CreditApplicationInfoService - A request to view credit results has been received.
+""2022-01-30 17:16:58 [http-nio-8080-exec-3] INFO  c.e.n.s.CreditApplicationInfoService - A request to view credit results has been received.
+""2022-01-30 17:17:51 [http-nio-8080-exec-5] INFO  c.e.n.s.CreditApplicationInfoService - A request to view credit results has been received.
+""2022-01-30 17:17:51 [http-nio-8080-exec-5] ERROR c.e.n.service.ValidateService - This customer ID number does not exist.
+""2022-01-30 17:18:12 [http-nio-8080-exec-7] INFO  c.e.n.s.CreditApplicationInfoService - A request to view credit results has been received.
+""2022-01-30 17:18:40 [http-nio-8080-exec-8] INFO  c.e.n.s.CreditApplicationInfoService - A request to view credit results has been received.
+""2022-01-30 17:24:18 [http-nio-8080-exec-3] INFO  c.e.n.s.CreditApplicationInfoService - A request to view credit results has been received.
+""2022-01-30 17:24:18 [http-nio-8080-exec-3] ERROR c.e.n.service.ValidateService - Customer ID Number and birthdate not matched.
+""2022-01-30 17:25:04 [http-nio-8080-exec-5] INFO  c.e.n.s.CreditApplicationInfoService - A request to view credit results has been received.
+""2022-01-30 17:25:11 [http-nio-8080-exec-6] INFO  c.e.n.s.CreditApplicationInfoService - A request to view credit results has been received.
+""2022-01-30 17:25:11 [http-nio-8080-exec-6] ERROR c.e.n.service.ValidateService - Customer ID Number and birthdate not matched.
+""2022-01-30 17:25:21 [http-nio-8080-exec-7] INFO  c.e.n.s.CreditApplicationInfoService - A request to view credit results has been received.
+""2022-01-30 17:25:21 [http-nio-8080-exec-7] ERROR c.e.n.service.ValidateService - This customer ID number does not exist.
+""2022-01-30 17:27:05 [http-nio-8080-exec-10] INFO  c.e.n.s.CreditApplicationInfoService - A request to view credit results has been received.
+""2022-01-30 17:40:07 [http-nio-8080-exec-5] INFO  c.e.n.service.CustomerService - Customer update request received.
+""2022-01-30 17:40:07 [http-nio-8080-exec-5] ERROR c.e.n.service.ValidateService - This customer ID number does not exist.
+""2022-01-30 17:41:00 [http-nio-8080-exec-7] INFO  c.e.n.service.CustomerService - Customer update request received.
+""2022-01-30 17:41:00 [http-nio-8080-exec-7] ERROR c.e.n.service.ValidateService - This customer phone number 0571818715 already exists.
+""2022-01-30 17:41:25 [http-nio-8080-exec-9] INFO  c.e.n.s.CreditApplicationInfoService - A request to view credit results has been received.
+""2022-01-30 17:44:32 [http-nio-8080-exec-1] INFO  c.e.n.service.CustomerService - Customer update request received.
+""2022-01-30 17:44:32 [http-nio-8080-exec-1] ERROR c.e.n.service.ValidateService - This customer phone number 0571818715 already exists.
+"
