@@ -15,12 +15,10 @@ import java.util.Optional;
 
 @Service
 @Slf4j
-@Transactional
 public class ValidateService {
 
     public void validateNewCustomer(Optional<Customer> optionalCustomer){
         if(optionalCustomer.isPresent()){
-
             log.error("This customer ID Number " + optionalCustomer.get().getIdNum() + " already exists.");
             throw new SameIdNumberException(Exceptions.SameIdNumberException.getMessage());
         }

@@ -8,10 +8,8 @@ import com.example.n11talenthubbootcampgraduationprojectoyaer.dto.CustomerDto;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.dto.CustomerRequestDto;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.Customer;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.CreditApplicationInfo;
-import com.example.n11talenthubbootcampgraduationprojectoyaer.enums.CreditStatusType;
-import com.example.n11talenthubbootcampgraduationprojectoyaer.enums.Exceptions;
-import com.example.n11talenthubbootcampgraduationprojectoyaer.exception.*;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.util.CreditScore;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
@@ -26,25 +24,20 @@ import java.util.Optional;
 @Transactional
 @Configurable
 @Slf4j
+@RequiredArgsConstructor
 public class CustomerService {
 
-    @Autowired
-    private CustomerDao customerDao;
+    private final CustomerDao customerDao;
 
-    @Autowired
-    private CreditScore creditScore;
+    private final CreditScore creditScore;
 
-    @Autowired
-    private CreditApplicationInfoDao infoDao;
+    private final CreditApplicationInfoDao infoDao;
 
-    @Autowired
-    private CreditApplicationInfoService infoService;
+    private final CreditApplicationInfoService infoService;
 
-    @Autowired
-    private ValidateService validateService;
+    private final ValidateService validateService;
 
-    private CreditApplication creditApplication;
-
+    private  CreditApplication creditApplication;
 
 
     public CustomerDto saveCustomers(CustomerDto customerDto) {
@@ -70,7 +63,7 @@ public class CustomerService {
 
     }
 
-    private CreditApplicationInfo creditApprove(int creditScore, BigDecimal income, BigDecimal assurance, Customer customer){
+    public CreditApplicationInfo creditApprove(int creditScore, BigDecimal income, BigDecimal assurance, Customer customer){
         if(creditScore<500){
             setCreditApplicationStrategy(new ConcreteCreditApplicationCase1());
         }
@@ -147,11 +140,11 @@ public class CustomerService {
 
     }
 
-    private void setCreditApplicationStrategy(CreditApplication creditApplication) {
+    public void setCreditApplicationStrategy(CreditApplication creditApplication) {
         this.creditApplication = creditApplication;
     }
 
-    private CreditApplicationInfo executeCreditApplicationStrategy(int creditScore, BigDecimal income, BigDecimal assurance, Customer customer){
+    public CreditApplicationInfo executeCreditApplicationStrategy(int creditScore, BigDecimal income, BigDecimal assurance, Customer customer){
         return creditApplication.creditApproval(creditScore,income,assurance, customer);
     }
 }

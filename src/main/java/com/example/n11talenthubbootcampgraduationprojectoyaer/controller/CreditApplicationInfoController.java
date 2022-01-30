@@ -5,6 +5,7 @@ import com.example.n11talenthubbootcampgraduationprojectoyaer.dto.CreditStatusRe
 import com.example.n11talenthubbootcampgraduationprojectoyaer.service.CreditApplicationInfoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,11 +16,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/creditAppInfos")
 @CrossOrigin
+@RequiredArgsConstructor
 @Tag(name = "Credit Application Info Controller", description = "We are viewing the loan application result")
 public class CreditApplicationInfoController {
 
-    @Autowired
-    private CreditApplicationInfoService infoService;
+
+    private final CreditApplicationInfoService infoService;
 
     @Operation(summary = "We return the customer's credit results.")
     @PostMapping("")

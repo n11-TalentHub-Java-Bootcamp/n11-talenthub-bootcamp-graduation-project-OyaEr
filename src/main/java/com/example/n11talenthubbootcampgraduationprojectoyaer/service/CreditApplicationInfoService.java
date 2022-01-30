@@ -8,8 +8,7 @@ import com.example.n11talenthubbootcampgraduationprojectoyaer.dto.CreditStatusRe
 import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.Customer;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.CreditApplicationInfo;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.enums.CreditStatusType;
-import com.example.n11talenthubbootcampgraduationprojectoyaer.enums.Exceptions;
-import com.example.n11talenthubbootcampgraduationprojectoyaer.exception.IDNumberAndBirthDateNotMatchException;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,16 +24,16 @@ import java.util.Optional;
 @Service
 @Transactional
 @Slf4j
+@RequiredArgsConstructor
 public class CreditApplicationInfoService {
 
-    @Autowired
-    private CustomerDao customerDao;
+    private final CustomerDao customerDao;
 
-    @Autowired
-    private CreditApplicationInfoDao infoDao;
 
-    @Autowired
-    private ValidateService validateService;
+    private final CreditApplicationInfoDao infoDao;
+
+
+    private final ValidateService validateService;
 
 
     public List<CreditStatusResponseDto> getCreditStatus(CreditStatusDto creditStatusDto) {
