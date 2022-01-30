@@ -89,12 +89,11 @@ public class CustomerService {
 
         log.info("Customer update request received.");
 
-
         Optional<Customer> optionalCustomer = customerDao.findByIdNum(idNum);
         Customer customer = validateService.validateExistingCustomer(optionalCustomer);
 
         Optional<Customer> customerOptional = customerDao.findByPhoneNum(customerRequestDto.getPhoneNum());
-        validateService.validatePhoneNumber(customerOptional);
+        validateService.validatePhoneNumberForUpdateCustomer(customerRequestDto,customer);
 
         Long customerId= customer.getId();
         String phoneNumber= customerRequestDto.getPhoneNum();

@@ -1,5 +1,6 @@
 package com.example.n11talenthubbootcampgraduationprojectoyaer.service;
 
+import com.example.n11talenthubbootcampgraduationprojectoyaer.dto.CustomerRequestDto;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.CreditApplicationInfo;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.entity.Customer;
 import com.example.n11talenthubbootcampgraduationprojectoyaer.enums.CreditStatusType;
@@ -35,13 +36,24 @@ public class ValidateService {
         }
     }
 
-
     public void validatePhoneNumber(Optional<Customer> optionalCustomer){
         if(optionalCustomer.isPresent()){
             log.error("This customer phone number " + optionalCustomer.get().getPhoneNum() + " already exists.");
             throw new SamePhoneNumberException(Exceptions.SamePhoneNumberException.getMessage());
         }
     }
+
+    public void validatePhoneNumberForUpdateCustomer(CustomerRequestDto customerRequestDto, Customer customer){
+
+        String phoneNumber= customerRequestDto.getPhoneNum();
+        String phoneNumDB= customer.getPhoneNum();
+
+        if(!phoneNumDB.equals(phoneNumber)){
+            log.error("This customer phone number " + phoneNumber + " already exists.");
+            throw  new SamePhoneNumberException(Exceptions.SamePhoneNumberException.getMessage());
+        }
+    }
+
 
     public void isPhoneNumberValid(String phoneNumber){ //private
 
