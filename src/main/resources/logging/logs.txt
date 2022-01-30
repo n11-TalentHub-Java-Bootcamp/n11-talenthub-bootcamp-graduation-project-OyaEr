@@ -178,4 +178,10 @@
 ""2022-01-30 18:51:02 [http-nio-8080-exec-5] INFO  c.e.n.service.CustomerService - Customer update request received.
 ""2022-01-30 18:51:02 [http-nio-8080-exec-5] INFO  c.e.n.util.CreditScore - Credit score assigned to 400
 ""2022-01-30 18:51:02 [http-nio-8080-exec-5] INFO  c.e.n.service.CustomerService - Redirected to the method of saving applications and sending sms.
+""2022-01-30 18:51:02 [http-nio-8080-exec-5] INFO  c.e.n.service.CustomerService - Credit limit strategies have been determined. The relevant method will be run.
+""2022-01-30 18:51:02 [http-nio-8080-exec-5] INFO  c.e.n.c.ConcreteCreditApplicationCase1 - Credit score below 500,case-1 run.
+""2022-01-30 18:51:02 [http-nio-8080-exec-5] INFO  c.e.n.s.CreditApplicationInfoService - Kredi Durum: RED Kredi Limit: 0, 05823698987 telefon numaralı müşteriye gönderildi.
+""2022-01-30 18:51:02 [http-nio-8080-exec-5] INFO  c.e.n.service.CustomerService - Customer credit application saved. The sms sending method has been called.
+""2022-01-30 18:58:46 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+""2022-01-30 18:58:46 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
 "
