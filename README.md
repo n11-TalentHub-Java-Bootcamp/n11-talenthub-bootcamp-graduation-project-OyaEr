@@ -17,12 +17,11 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#backend-prerequisites">Backend Prerequisites</a></li>
+        <li><a href="#frontend-prerequisites">Frontend Prerequisites</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -38,7 +37,7 @@
 This project has been prepared as a graduation project for n11 Talenthub Java Spring Boot Bootcamp.
 The content of the project is a bank loan application system. It is basically an application that creates customers and returns credit results based on customer information.
 
-The backend of the project was prepared using Java Spring Boot and the frontend was prepared using React.js. PostgreSQL was also used as the database.
+The backend of the project was prepared using Java Spring Boot and the frontend was prepared using React.js.PostgreSQL was also used as the database.
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -51,6 +50,7 @@ This section list any major frameworks/libraries/technologies/databases used in 
 
 * [Java Spring Boot](https://spring.io/projects/spring-boot)
 * [React.js](https://tr.reactjs.org/)
+* [NPM](https://nodejs.org/en/)
 * [PostgreSQL](https://www.postgresql.org/)
 * [Maven](https://maven.apache.org/)
 * [Swagger](https://swagger.io/)
@@ -66,10 +66,9 @@ This section list any major frameworks/libraries/technologies/databases used in 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
-### Backend Prequisites
+### Backend Prerequisites
 
 Before get start you need to be sure that written technologies below must be downloaded on your system.
 
@@ -81,37 +80,28 @@ Configuration details use by maven is in [pom.xml](https://github.com/n11-Talent
 The other application properties are listed in [application.properties](https://github.com/n11-TalentHub-Java-Bootcamp/n11-talenthub-bootcamp-graduation-project-OyaEr/blob/main/src/main/resources/application.properties) file. If you want to use your local database you must change related fields about PostgreSQL in application.properties.
 
 After all this you can run this project by opening it on IntelliJ IDEA and simply build and run. 
-To perform API you can use [Postman Collections]() under the directory named resources.
+To perform API you can use [Postman Collections](https://github.com/n11-TalentHub-Java-Bootcamp/n11-talenthub-bootcamp-graduation-project-OyaEr/tree/main/src/main/resources/postmanCollection) under the directory named resources.
+Finally you can access the [swagger-docs](https://github.com/n11-TalentHub-Java-Bootcamp/n11-talenthub-bootcamp-graduation-project-OyaEr/blob/main/swagger-docs.json) file here.
 
+### Frontend Prerequisites
 
-### Frontend Prequisites
+Before get start you need to be sure that written technologies below must be downloaded on your system.
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+* [NPM](https://nodejs.org/en/)
+* [Visual Studio Code](https://code.visualstudio.com/)
 
-### Installation
+Run this comment written below in the directory [grad-project-frontend](https://github.com/n11-TalentHub-Java-Bootcamp/n11-talenthub-bootcamp-graduation-project-OyaEr/tree/main/frontend/grad-project-frontend).
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
+1.Install NPM packages
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+2.npm
+  ```sh
+  npm start
+  ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
 
 
 <!-- USAGE EXAMPLES -->

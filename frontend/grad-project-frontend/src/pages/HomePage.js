@@ -4,7 +4,7 @@ class HomePage extends React.Component {
   render(){
   return (
     <div className="HomePage"> 
-        <p>HomePage</p>
+        <h1>n11 Talenthub Graduation Project of Şayegan Oya Erdayı</h1>
     </div>
   );}
 }
