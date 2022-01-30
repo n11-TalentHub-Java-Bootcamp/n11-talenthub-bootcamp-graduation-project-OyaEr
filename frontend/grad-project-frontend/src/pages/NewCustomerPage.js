@@ -30,20 +30,19 @@ class NewCustomerPage extends React.Component {
 
     fetch(uri,requestOptions)
       .then(response => {
-        if (response.ok) {
+        console.log(response.status);
+        if(response.status!="201"){
           this.setState({
-            response: 'success',
-            isFormSubmit: true
+            response: 'danger',
           });
+          return;
         }
         return response.json();
       }).then( res =>  {
         console.log(res);
-        if(res.message){
+        if(res){
           this.setState({
-            response: 'danger',
-            isFormSubmit: true,
-            message: res.message
+            response: 'success',
           }); 
         }
       })
@@ -51,8 +50,11 @@ class NewCustomerPage extends React.Component {
         console.log(error);
         this.setState({
           response: 'danger',
-          isFormSubmit: true
         });
+      });
+
+      this.setState({
+        isFormSubmit: true
       });
   }
 

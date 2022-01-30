@@ -31,24 +31,26 @@ class CreditResultsPage extends React.Component {
     }
     fetch(uri,requestOptions)
     .then(response => {
+      if(response.status!="200"){
+        this.setState({
+          response: 'danger',
+        });
+        return;
+      }
       return response.json();
     }).then( res =>  {
-      console.log(res);
-      //status bak
-      this.setState({
-        results: res,
-        type: 'credit-application-result',
-      });
-      
+      if(res){
+        this.setState({
+          results: res,
+          response: 'success',
+        });
+      }
     })
     .catch(error => {
-      console.log(error);
       this.setState({
-        type: 'customer-result',
         response: 'danger',
       });
     });
-    //console.log(customerInfo);
     this.setState({
       isFormSubmit: true
     });
@@ -58,7 +60,7 @@ class CreditResultsPage extends React.Component {
     return (
       <>
       {
-        this.state.isFormSubmit ?  <InformArea type={this.state.type} variant={this.state.response} data={this.state.results} />  : <FormArea onSubmit={this.handleFormSubmit} type="only-idNum-birthDate" />
+        this.state.isFormSubmit ?  <InformArea type="credit-application-result" variant={this.state.response} data={this.state.results} />  : <FormArea onSubmit={this.handleFormSubmit} type="only-idNum-birthDate" />
       }
       </>
     );

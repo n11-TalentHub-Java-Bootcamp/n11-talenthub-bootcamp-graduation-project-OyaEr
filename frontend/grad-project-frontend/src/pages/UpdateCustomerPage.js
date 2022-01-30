@@ -29,14 +29,21 @@ class UpdateCustomerPage extends React.Component {
 
     fetch(uri,requestOptions)
     .then(response => {
+      console.log(response.status);
+      if(response.status=="400" || response.status=="404"){
+        this.setState({
+          response: 'danger',
+        });
+        return;
+      }
       return response.json();
     }).then( res =>  {
       console.log(res);
-      //status bak
-      this.setState({
-        response: 'success',
-      });
-      
+      if(res){
+        this.setState({
+          response: 'success',
+        });
+      }
     })
     .catch(error => {
       console.log(error);

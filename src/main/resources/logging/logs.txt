@@ -131,4 +131,51 @@
 ""2022-01-30 18:00:17 [http-nio-8080-exec-2] INFO  c.e.n.service.CustomerService - Customer credit application saved. The sms sending method has been called.
 ""2022-01-30 18:00:57 [http-nio-8080-exec-3] INFO  c.e.n.service.CustomerService - Customer update request received.
 ""2022-01-30 18:00:57 [http-nio-8080-exec-3] ERROR c.e.n.service.ValidateService - This customer phone number 05313216699 already exists.
+""2022-01-30 18:11:23 [http-nio-8080-exec-5] INFO  c.e.n.service.CustomerService - Customer update request received.
+""2022-01-30 18:11:23 [http-nio-8080-exec-5] ERROR c.e.n.service.ValidateService - This customer phone number 05319432329 already exists.
+""2022-01-30 18:15:28 [http-nio-8080-exec-6] INFO  c.e.n.service.CustomerService - Customer update request received.
+""2022-01-30 18:15:28 [http-nio-8080-exec-6] ERROR c.e.n.service.ValidateService - This customer phone number 05324563119 already exists.
+""2022-01-30 18:17:55 [http-nio-8080-exec-8] INFO  c.e.n.service.CustomerService - Customer update request received.
+""2022-01-30 18:17:55 [http-nio-8080-exec-8] ERROR c.e.n.service.ValidateService - This customer ID number does not exist.
+""2022-01-30 18:19:15 [http-nio-8080-exec-10] INFO  c.e.n.service.CustomerService - Customer update request received.
+""2022-01-30 18:19:15 [http-nio-8080-exec-10] ERROR c.e.n.service.ValidateService - This customer ID number does not exist.
+""2022-01-30 18:22:56 [http-nio-8080-exec-3] INFO  c.e.n.service.CustomerService - Customer registration request received.
+""2022-01-30 18:22:56 [http-nio-8080-exec-3] ERROR c.e.n.service.ValidateService - This customer phone number 05366339985 already exists.
+""2022-01-30 18:23:18 [http-nio-8080-exec-4] INFO  c.e.n.service.CustomerService - Customer registration request received.
+""2022-01-30 18:23:18 [http-nio-8080-exec-4] ERROR c.e.n.service.ValidateService - This customer ID Number 45893651231 already exists.
+""2022-01-30 18:24:04 [http-nio-8080-exec-6] INFO  c.e.n.service.CustomerService - Customer registration request received.
+""2022-01-30 18:24:04 [http-nio-8080-exec-6] INFO  c.e.n.util.CreditScore - Credit score assigned to 500
+""2022-01-30 18:24:04 [http-nio-8080-exec-6] INFO  c.e.n.service.CustomerService - Customer saved.
+""2022-01-30 18:24:04 [http-nio-8080-exec-6] INFO  c.e.n.service.CustomerService - Redirected to the method of saving applications and sending sms.
+""2022-01-30 18:24:04 [http-nio-8080-exec-6] INFO  c.e.n.service.CustomerService - Credit limit strategies have been determined. The relevant method will be run.
+""2022-01-30 18:24:04 [http-nio-8080-exec-6] INFO  c.e.n.c.ConcreteCreditApplicationCase2 - Case-2 without assurance run.
+""2022-01-30 18:24:04 [http-nio-8080-exec-6] INFO  c.e.n.s.CreditApplicationInfoService - Kredi Durum: ONAY Kredi Limit: 10000, 05311110112 telefon numaralı müşteriye gönderildi.
+""2022-01-30 18:24:04 [http-nio-8080-exec-6] INFO  c.e.n.service.CustomerService - Customer credit application saved. The sms sending method has been called.
+""2022-01-30 18:25:12 [http-nio-8080-exec-9] INFO  c.e.n.s.CreditApplicationInfoService - A request to view credit results has been received.
+""2022-01-30 18:25:41 [http-nio-8080-exec-1] INFO  c.e.n.s.CreditApplicationInfoService - A request to view credit results has been received.
+""2022-01-30 18:26:38 [http-nio-8080-exec-4] INFO  c.e.n.s.CreditApplicationInfoService - A request to view credit results has been received.
+""2022-01-30 18:44:27 [http-nio-8080-exec-4] INFO  c.e.n.s.CreditApplicationInfoService - A request to view credit results has been received.
+""2022-01-30 18:44:54 [http-nio-8080-exec-6] INFO  c.e.n.s.CreditApplicationInfoService - A request to view credit results has been received.
+""2022-01-30 18:45:27 [http-nio-8080-exec-8] INFO  c.e.n.s.CreditApplicationInfoService - A request to view credit results has been received.
+""2022-01-30 18:46:51 [http-nio-8080-exec-10] INFO  c.e.n.s.CreditApplicationInfoService - A request to view credit results has been received.
+""2022-01-30 18:48:19 [http-nio-8080-exec-3] INFO  c.e.n.service.CustomerService - Customer registration request received.
+""2022-01-30 18:48:19 [http-nio-8080-exec-3] ERROR c.e.n.service.ValidateService - This customer ID Number 45893651231 already exists.
+""2022-01-30 18:48:51 [http-nio-8080-exec-4] INFO  c.e.n.service.CustomerService - Customer registration request received.
+""2022-01-30 18:48:51 [http-nio-8080-exec-4] INFO  c.e.n.util.CreditScore - Credit score assigned to 400
+""2022-01-30 18:48:51 [http-nio-8080-exec-4] INFO  c.e.n.service.CustomerService - Customer saved.
+""2022-01-30 18:48:51 [http-nio-8080-exec-4] INFO  c.e.n.service.CustomerService - Redirected to the method of saving applications and sending sms.
+""2022-01-30 18:48:51 [http-nio-8080-exec-4] INFO  c.e.n.service.CustomerService - Credit limit strategies have been determined. The relevant method will be run.
+""2022-01-30 18:48:51 [http-nio-8080-exec-4] INFO  c.e.n.c.ConcreteCreditApplicationCase1 - Credit score below 500,case-1 run.
+""2022-01-30 18:48:51 [http-nio-8080-exec-4] INFO  c.e.n.s.CreditApplicationInfoService - Kredi Durum: RED Kredi Limit: 0, 05823698987 telefon numaralı müşteriye gönderildi.
+""2022-01-30 18:48:51 [http-nio-8080-exec-4] INFO  c.e.n.service.CustomerService - Customer credit application saved. The sms sending method has been called.
+""2022-01-30 18:49:32 [http-nio-8080-exec-7] INFO  c.e.n.service.CustomerService - Customer update request received.
+""2022-01-30 18:49:32 [http-nio-8080-exec-7] INFO  c.e.n.util.CreditScore - Credit score assigned to 1000
+""2022-01-30 18:49:32 [http-nio-8080-exec-7] ERROR c.e.n.service.ValidateService - Have approved credit. Application cannot be made.
+""2022-01-30 18:50:30 [http-nio-8080-exec-9] INFO  c.e.n.service.CustomerService - Customer update request received.
+""2022-01-30 18:50:30 [http-nio-8080-exec-9] ERROR c.e.n.service.ValidateService - This customer ID number does not exist.
+""2022-01-30 18:50:38 [http-nio-8080-exec-2] INFO  c.e.n.service.CustomerService - Customer update request received.
+""2022-01-30 18:50:38 [http-nio-8080-exec-2] ERROR c.e.n.service.ValidateService - This customer ID number does not exist.
+""2022-01-30 18:51:02 [http-nio-8080-exec-5] INFO  c.e.n.service.CustomerService - Customer update request received.
+""2022-01-30 18:51:02 [http-nio-8080-exec-5] INFO  c.e.n.util.CreditScore - Credit score assigned to 400
+""2022-01-30 18:51:02 [http-nio-8080-exec-5] INFO  c.e.n.service.CustomerService - Redirected to the method of saving applications and sending sms.
 "
